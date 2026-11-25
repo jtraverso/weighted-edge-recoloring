@@ -1,0 +1,1442 @@
+{
+  "release": "preprint-1.0",
+  "doi": "10.5281/zenodo.24521352",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 75,
+      "sha256": "c91d7fb40b371ef23b5e83e77d757eafb23c9dd58c5978476e39aaffdc571739"
+    },
+    {
+      "path": "CITATION.bib",
+      "bytes": 321,
+      "sha256": "ed348c7993884c6b69cf54137349548abd3ccc1debcb1d504668b94f42eee6c0"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 980,
+      "sha256": "2b84a89c0b17244e4871599d4223cd61b52516eb1fb50100b2973d4147158fec"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 19343,
+      "sha256": "f491b6a85be5d5d912c48d6002f8d9288ce0748b787fdc9a38455a1a29119bff"
+    },
+    {
+      "path": "LICENSE.md",
+      "bytes": 659,
+      "sha256": "d64bf2544261dbcbc9a6244ff016c4fc6b5dcff523e0b28cbca7e023f8753652"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2328,
+      "sha256": "69fe9d893062f922faed6c2253ba0705b8dafba51448cfa90518b8fe9a0bbdaa"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "bytes": 1086,
+      "sha256": "fa1ebe95fbfa6e1f98b6fa0354a1195ecef7a22e2b045a615c6d768488c99ba2"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/WECR_preprint_v1.0_en.pdf",
+      "bytes": 358420,
+      "sha256": "88e20d1bd11cfab23152657f0bf2efca5012a4c58b9627e0115534ce6cbaad47"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/WECR_preprint_v1.0_en.tex",
+      "bytes": 45310,
+      "sha256": "a824d327d6617dbaed555493a3e9161a50fbcad5f2a6598a8abf87497b6886f2"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/WECR_preprint_v1.0_es.pdf",
+      "bytes": 465463,
+      "sha256": "ab768ffcef530fa368e922d316a1e5a2dfd359a4badeb8e9b377a7739f6aeb91"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/WECR_preprint_v1.0_es.tex",
+      "bytes": 47126,
+      "sha256": "11bd6fef96859a0c5e19a7ffeeffde5b2ffe614a689d4a9a75c347d87e6f4f5d"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/blocks-es.tex",
+      "bytes": 10010,
+      "sha256": "96273203b5ea36ebfe51ba829bb6f57af509df164e73075e39466bcc7c4e7844"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/blocks.tex",
+      "bytes": 9273,
+      "sha256": "4af685de58f62a2893ead8c08fbd94d369ee6d2460b2dd39fcb267f5d933af95"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/spectral-reserve-es.tex",
+      "bytes": 23763,
+      "sha256": "8abb89577f72884ecba3cbb566c0fa2d6da61d84e32cfde0d0292111f36cd3d3"
+    },
+    {
+      "path": "preprints/WECR/01_manuscript/spectral-reserve.tex",
+      "bytes": 22040,
+      "sha256": "c8f665147fa03686748e9efaec54746b02e0b57ea646d609d4dfeb06e09330e1"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/FINAL_INTERNAL_AUDIT_REPORT.md",
+      "bytes": 5345,
+      "sha256": "256bc2e28cf232d2453916373cefc7f9000bdb71a2ca54010cb99ca90101075e"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/PROOF_CONSTANTS.md",
+      "bytes": 1344,
+      "sha256": "8c81611b3d09bd6137e4e341983a7c0fb6b52c9a1e76562a146b32dfe50806cb"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/WECR_FORMALIZATION_COMPANION_v1.0_en.log",
+      "bytes": 19362,
+      "sha256": "8f98082cebabb2a740e1f71d5700661d448fc20e3ce0740722423371500a9ed0"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/WECR_FORMALIZATION_COMPANION_v1.0_es.log",
+      "bytes": 23536,
+      "sha256": "6a00e998677cc299395dd89a068a2d3ddc9e5d8588356c6c334bfcacce93c30c"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/WECR_preprint_v1.0_en.log",
+      "bytes": 32053,
+      "sha256": "44b3df456bccb8c93601c245853fd18975dbdde1d64072e86b1b5882cbe2629c"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/WECR_preprint_v1.0_es.log",
+      "bytes": 36697,
+      "sha256": "f31371c2e6427409937a8e91d708411d1233566850aaa5f4241864560de76ca1"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/certo-replay.txt",
+      "bytes": 1299,
+      "sha256": "1720f55040eb731f05d55d67809900a8dcdfcbb43a00f4f8e2af52365f9f7304"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/grid-check.txt",
+      "bytes": 156,
+      "sha256": "4c385d4de2b9b72a46dd2ff375245b712d6ab6816021ac05fdbba5b2b32823d9"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/lean435-source-check.txt",
+      "bytes": 7382,
+      "sha256": "e1c6036abcc871448203173044b1aec28514e19cf81d095cb35c4ffb5fd627da"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/migration-check.txt",
+      "bytes": 317,
+      "sha256": "f684d50bb213f9733afc449e696525f1916c71f1c7cff5522a2f6900f466ca54"
+    },
+    {
+      "path": "preprints/WECR/02_validation/PUBLICATION_1_0/pdf-release-check.txt",
+      "bytes": 1142,
+      "sha256": "d93b426f9c24c1194e31a4320f7567152d72cf3895bd1f62bbfe843739de299f"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/README.md",
+      "bytes": 1554,
+      "sha256": "ad918da3d2c351770223fc1ea32709cca3999d0b6729237095ea52b018fce648"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/build-pdfs.sh",
+      "bytes": 515,
+      "sha256": "fe37911964994b96c631d61ae755db4a135b8844e1778da0af606d722dac1230"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/certo-grid/grid_inertia.py",
+      "bytes": 525,
+      "sha256": "1cae154510d00b375528abecc2255b36e027f82d4c375498bc562a751bf09d6a"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/certo-grid/inertia.json",
+      "bytes": 46048,
+      "sha256": "ae11cd7f8d5f2f5771801e5695991d73af05bf69e2cf79b3482e90065652954f"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/certo-grid/replay.txt",
+      "bytes": 1299,
+      "sha256": "1720f55040eb731f05d55d67809900a8dcdfcbb43a00f4f8e2af52365f9f7304"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/check-grid.py",
+      "bytes": 4125,
+      "sha256": "f140ef7e555dbb80292b87b7c2df8117fb35ebdf9785a3d2296643d4688b9d4f"
+    },
+    {
+      "path": "preprints/WECR/03_reproducibility/verify-lean.sh",
+      "bytes": 302,
+      "sha256": "afe3c77baa84a50ce15a648344efbc3f509d74b5df3b4d5da60ebbc3b36777cb"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/WECR_FORMALIZATION_COMPANION_v1.0_en.pdf",
+      "bytes": 94208,
+      "sha256": "889f1aad8a61c506c532dbf2a008e52b33096f2b8e04fa1b7b90251388d83f26"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/WECR_FORMALIZATION_COMPANION_v1.0_en.tex",
+      "bytes": 6945,
+      "sha256": "81987060e2d372fde1b5e1fa341c457cb6c87025922f8e6848a31292de423d8c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/WECR_FORMALIZATION_COMPANION_v1.0_es.pdf",
+      "bytes": 160893,
+      "sha256": "4753a2e4a02c037def3e90b7654c1de7dcc901010f4752b25e4d74b93d083c86"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/WECR_FORMALIZATION_COMPANION_v1.0_es.tex",
+      "bytes": 7464,
+      "sha256": "bfd2849ccfaa9d6fa6134f5d5f057739cd8086d47768bf844fcebe6d1c6205a3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/freeze/README.md",
+      "bytes": 354,
+      "sha256": "df18f155bc4f15500ea099c394533b5ba87864f41a4053543c902df74e21294a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/freeze/SHA256SUMS",
+      "bytes": 99,
+      "sha256": "e2d795852fc71647b5f795f53adf25f6094d8f3f244f60067057872c688ffa17"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/freeze/wecr-lean435-preprint-1.0.tar.gz",
+      "bytes": 449403,
+      "sha256": "7926e1b02eb2db11d825bf80649d4f66432c5db11f5a988848576f92e8c752ca"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/AdmissibleBridge.lean",
+      "bytes": 4819,
+      "sha256": "18d9b6c5d4da394ddaee396b62f44ed78339ca3eeadf023ee1c5d5cc8d51a899"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Audit.lean",
+      "bytes": 1736,
+      "sha256": "0f0abf5bb3c32f094d130ff3ed64da4884741e9b93fa780f81a144faa37bd17e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Balanced/Basic.lean",
+      "bytes": 3696,
+      "sha256": "86902703ba62a6ab51166576762987a0dc2b848f37b17714ed37a47c1390c043"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Balanced/Bridge.lean",
+      "bytes": 9147,
+      "sha256": "96cac3c415437497777d497d77987317583a3983e9a1f95b4bc6654491b68777"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Balanced/RSa.lean",
+      "bytes": 4267,
+      "sha256": "6eb38bf8436bc6901b747e9977a21e3c06f5c43bfb4e68bacb0c959e86873af9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Balanced/RSb.lean",
+      "bytes": 4644,
+      "sha256": "a11de94ea7040c60a58d35a04c59c97a048b6c47375055f7393da6c832ab4ee5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Balanced/RSc.lean",
+      "bytes": 11945,
+      "sha256": "3c8429002c82d0bd1d2e13d8598f63c3d6cd16727a6deeaec6caab63ca387356"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Balanced/SwapOn.lean",
+      "bytes": 4700,
+      "sha256": "162b36a73c7ceef7af86a997bd0bb98e29ebb11bd21631085445a65f9a6c5a7e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/BaranyaiLib/IntegralFlow.lean",
+      "bytes": 4737,
+      "sha256": "1b84da81e5881d7b15578dd33311f492213d1097a23c59b72b6c70986be2e407"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/BridgeLaw.lean",
+      "bytes": 3154,
+      "sha256": "04ae38925b94ead937636b733c33ca330813b29030fcb87709583f4b43636544"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/BulkMatching.lean",
+      "bytes": 4747,
+      "sha256": "aebce5020ed86177053b65227d8e4ca05a9ad6dfb0fe9f81209e1dafd4122d65"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ConditionedPalette.lean",
+      "bytes": 4968,
+      "sha256": "6340c50ac1b8a0fcf7d6133eb2b0d6a5850d1ba3d3d0f0881268afed1ca7dd6a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ConflictSelection.lean",
+      "bytes": 6513,
+      "sha256": "bcd232c57ec7305fd50ef02f4b580da920fbe725aff16ef1547c97500c6a09fc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/CopyCapacity.lean",
+      "bytes": 2746,
+      "sha256": "1576387dbf8135eae203f41a18ce18cede12b911d11701ac10313f43410d2cfd"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/DemandTests.lean",
+      "bytes": 5045,
+      "sha256": "002da3f75cededc63e50a30a2b9772e04125fd4446553029a196fb4b7635d259"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/DetourSchedule.lean",
+      "bytes": 6953,
+      "sha256": "7cb0cb7766136f8476ddfe45c051f628774726a8b9ae13baa79bb72f67e13864"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/EdgeMarginals.lean",
+      "bytes": 3936,
+      "sha256": "e9c08f55cb7d5572023a73fb9b6fb597cbf19c8bdaaa4c2a308461eaa1802490"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ExceptionalHost.lean",
+      "bytes": 10301,
+      "sha256": "5ab1b805e806d706c4e279de257c5b8cf8cb143b78c823ec6a3ceaafed16402b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ExceptionalPacking.lean",
+      "bytes": 6151,
+      "sha256": "67cd253d7383d1536258bd9065f24cec59658aa96e96d9092a2752c5ccedabe4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GaleHoffmanLib/Feasibility.lean",
+      "bytes": 15381,
+      "sha256": "889325b7340dc7f5a65373c77634fc54f9fd21e7d66c50a8fad21d43e125b6db"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GalvinMultigraph/Local/Base.lean",
+      "bytes": 1738,
+      "sha256": "60454e9c0e152faaaa2c81d0ce48ab8b9831349fec808ceca7ff99a6d8af58ba"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GalvinMultigraph/Local/Konig.lean",
+      "bytes": 14655,
+      "sha256": "1f530656ea0598b718d357afeb93d53329255688270a27936468b6b63053e2cc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GalvinMultigraph/Local/Stable.lean",
+      "bytes": 5670,
+      "sha256": "5b96456f6987049981291a3bb13974885aac99da4205e42e06219f6fd747520a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridCompletion.lean",
+      "bytes": 4294,
+      "sha256": "33d9cbe1fa27aa7efc477218abfd2c58ea0b63166a94cba57688d65e994a287b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridDegrees.lean",
+      "bytes": 7629,
+      "sha256": "8db7ee0b6546772c563c9004a54ba1ead672c3f9448c381740f29266c5155f32"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridDetours.lean",
+      "bytes": 4810,
+      "sha256": "ae30ba229595c6d96c557dfa840e0b381d66d7522234aec36f50676c4d6f623c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridExceptional.lean",
+      "bytes": 9456,
+      "sha256": "986b0ac4d45dbc68945294dbde426a7534cb34656bef6dd45899a2e27000cc78"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridGrowth.lean",
+      "bytes": 3963,
+      "sha256": "4dbaeefda8282f27dc304a81a3fbbe9695a389db6ebd3510720840be4a7364a9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridHost.lean",
+      "bytes": 7133,
+      "sha256": "ee1cb817778ad75d09f448a716490666f6111a13a74b0eb2d817415c111fd765"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridHybrid.lean",
+      "bytes": 9208,
+      "sha256": "93e641cba9fa2258beec25285fccd93e7192592b0390c3c6220716b7e8080d49"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridLayout.lean",
+      "bytes": 5252,
+      "sha256": "d76c1d0514467fd4b855d18b12ad2491f270d3b9ec588d7d94a8114dff426895"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridNibble.lean",
+      "bytes": 10207,
+      "sha256": "dbc0cf3dd1ef256adee596c409be6ba158f84fbae118d49b894f87b1ae88d50c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridRate.lean",
+      "bytes": 5943,
+      "sha256": "a6c6dda2a7997645cf44364e474558ef0d78cc4ceeed0cc535091ce0a7fa10ef"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridRectangle.lean",
+      "bytes": 10542,
+      "sha256": "ef3bbba17ef6ea8d083cd423c793bd644f8d6dc3b8710154c9eb0e3ca311e5d2"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridSpectrum.lean",
+      "bytes": 10225,
+      "sha256": "b6528e6c844e563022178cc9866bfe9079a7b3e14a1499ec58983ccf06f08cf8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/GridSpending.lean",
+      "bytes": 4014,
+      "sha256": "dbf951fc3356f74cd456155d482bcd75c897372ab87591f0d1af5bc2e1121bcd"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/HybridCertificate.lean",
+      "bytes": 3963,
+      "sha256": "40a601e64022c51778ef652975546c8563eba361a7c2acb46d27a1f72245cc79"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/HybridHost.lean",
+      "bytes": 6401,
+      "sha256": "1bb69e14ef1814191c6dfcef6a84f20e13fb5f202d1395ab02bdfbab57fbc1c3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/HybridRepair.lean",
+      "bytes": 5938,
+      "sha256": "bea1b5cf996d7bc630de04913395c5b94df2783accf88bff43446324ea4ed7d0"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/IncidencePacking.lean",
+      "bytes": 2663,
+      "sha256": "95c9657c8ea883fa8e7436df6e00c7b63cf0e655698c4b9403fdd02e8c8d32e3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-baranyai",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-core",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-critical-graphs",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-dross",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-gale",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-galvin-multigraph",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-plantholt",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-reused-proofs",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-shannon",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LICENSE-vizing",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/MaxFlowMinCut.lean",
+      "bytes": 30659,
+      "sha256": "44d362c5d6a9ef870d669d4250b0733a65b745ed9a3159cdb4efc5cbf4f0a639"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/Vizing/Basic.lean",
+      "bytes": 6943,
+      "sha256": "b32304d8bb1a5e1139cc940d513903ef4d93989ff844c16875fb296910d61bbf"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/Vizing/Endpoints.lean",
+      "bytes": 4220,
+      "sha256": "6c3777c5cfc90c2d836af09dd880091ef3b8d3007b6d0e5c7e096986e0167965"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/Vizing/Fan.lean",
+      "bytes": 5582,
+      "sha256": "f29e28e26fa20071f507069b6118550c3ed9756e45f59b717af93b41271c361d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/Vizing/Kempe.lean",
+      "bytes": 8970,
+      "sha256": "b5af8cb7cce80cf512b3dc2be595278bbf532630d2e31b7c546ca92b89315c0a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/Vizing/Main.lean",
+      "bytes": 6336,
+      "sha256": "2a3285f0ed309887e3bfd1699d9415571097383c12d72b36a940612cf71fa995"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/LeanPool/Vizing/Step.lean",
+      "bytes": 9227,
+      "sha256": "6b47b0e00a71d847dc6b57beab7a16e71a74279fdcd372885749090435266337"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/MatchingCoordinates.lean",
+      "bytes": 2630,
+      "sha256": "73cf0a89c40b8b635bd1d51c32136987f6dc00c48f00df4ab4a446257e3e03d5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/MatchingDiscrepancy.lean",
+      "bytes": 1160,
+      "sha256": "e7606dfc52231cf43f7efd53d16dbf94a7e87a9819d7d30df42dd71d6254f92b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/MatchingRepair.lean",
+      "bytes": 3181,
+      "sha256": "eb55c26da97fc43f1c4986e681661f291ac2f4650c49c3477b8400be7c8f8cb9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/NibblePacking.lean",
+      "bytes": 2442,
+      "sha256": "9b09f59d6fe5f7edb11d11353fd035fb660311cb341b9c9a3dcf64dd9a2d48cb"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Classes.lean",
+      "bytes": 6093,
+      "sha256": "46307c3a0828f904947b02be63e94d76a9744b7dfb44c7b9c49f3cbe04fda5b7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Core67.lean",
+      "bytes": 13794,
+      "sha256": "3cc19cfbe7921faab09a3fe3fe2095440cb081044400d8f3ac9cbe081b0f89f1"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/CoreRank.lean",
+      "bytes": 7529,
+      "sha256": "d7d593e12ce44f23a96376db7a9cd07b484b75e895e15bbbf95b5598254a645b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Extend.lean",
+      "bytes": 12471,
+      "sha256": "2d0d3b6cf9f154ff79b6bdf7be9350b043844999e62ce704d98c33ed9f038723"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Factors.lean",
+      "bytes": 11063,
+      "sha256": "4a00c72b16030d73effe1d7f5053410a0f76819616cd2106f4caeffc25b169a8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Factors2.lean",
+      "bytes": 7727,
+      "sha256": "7aff61cae1d11bd368359c872fc182fde1d3405577206a7006cb3ef3bf7f7220"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Label67.lean",
+      "bytes": 8076,
+      "sha256": "fb175dbe23d70058eff6ea9ae7e04ce56e827b1058c1702459f2c09c822ecfd3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Label67b.lean",
+      "bytes": 11750,
+      "sha256": "204513c81a309eafc0e49501595df56c5791aadfce934eb6f603c4081909947e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Labels.lean",
+      "bytes": 10631,
+      "sha256": "f2560b14c3ae1fc4d167a1ccdc6e3bbac18fabb0b4e6a443ac40afe11c901dfc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Main.lean",
+      "bytes": 17026,
+      "sha256": "6ad556b73df59874e066b7a3dd5845c620a216b73656efc1c56de234c7287ae3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Main67.lean",
+      "bytes": 33758,
+      "sha256": "f532db36266bc69e5d25cab62ecd55a1036d0b64fe147550937cd42b08190f3f"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Pair67.lean",
+      "bytes": 3452,
+      "sha256": "cd6564c4c756f09f5e53eb0b5a68c56e8968be0c0b9549f1958d57eb9f7ee142"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Pivot.lean",
+      "bytes": 8117,
+      "sha256": "3541e5879ff6d2069780dc8777703a999866f03cb560cbc4157dff6d952931d2"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Stair.lean",
+      "bytes": 9193,
+      "sha256": "e1194cab042b1c70f3e12bcbfc0f55425ed799665c83a8d81c28bd861f52b325"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Steps67.lean",
+      "bytes": 1848,
+      "sha256": "58225ec6fd807a02ae204b181a413579f6a523a1b83cd4dcb1b32de38d37fc30"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OneFactor/Sup.lean",
+      "bytes": 4203,
+      "sha256": "a98284ae69b16efdcf04a2974c3c701565c938abc86a0cdd1d47868ca1ef5f23"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Basic.lean",
+      "bytes": 4773,
+      "sha256": "45061311dda38524b6c67be999a6920fb44d25e2e00bd245b6ebfa48b9470fda"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Counting.lean",
+      "bytes": 10592,
+      "sha256": "0ed7588cb35129740456fa90b582880e9cbfd649ebd9b4d1434a30af775652c4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Degree.lean",
+      "bytes": 12097,
+      "sha256": "c2f442a35b2b50ab26b848d242d5915a466c9be114427f434c1b1d3e290d3252"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork.lean",
+      "bytes": 7686,
+      "sha256": "7aa3f0f972e79e3daf0ee377de97e24e3daa6e3e2bd8a1c75b7616948db0b89c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork56.lean",
+      "bytes": 4421,
+      "sha256": "94c60d79f283d4da22ca4b5e23c4f0c235c80411d85fa1a71ee154698473269d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork56a.lean",
+      "bytes": 14660,
+      "sha256": "ce722735d13897d785f2994194dcbb1e1560fb222c3a8e59ec074cba867e7fc8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork56b.lean",
+      "bytes": 20076,
+      "sha256": "6d56cd57522c6a424af3e14e0551150e4bb0b13bf1e44fb57ce9632215650e82"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork57a.lean",
+      "bytes": 15882,
+      "sha256": "d38fe42a72e372a11c2e6297f817863ac265bbc70040445967966bc03f20f24c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork57b.lean",
+      "bytes": 14506,
+      "sha256": "c24df8b3d1584e4e935fdfd86db1579c548cbacacd8521223434e8e9068068f7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork58.lean",
+      "bytes": 7603,
+      "sha256": "478969bc393fbdead4af396c1e8775a95254a74653ba56dbe839bf3f527b2aa5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Fork59.lean",
+      "bytes": 15180,
+      "sha256": "ddcf5ad54820df7ef715db8f9f9f9d82bd1f170236bcd6f52ee54981df76ddf2"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/ForkBasic.lean",
+      "bytes": 15115,
+      "sha256": "3651900ee36453cf9f433ceda7aa919b7efc9c51d3647e4c7238df67ce4ff65e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/ForkFinal.lean",
+      "bytes": 11850,
+      "sha256": "a14d0c8622dc09c2ac5ad2a62171069ef57cbc1cb0ff25063ca95b79fb056034"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/ForkFinal2.lean",
+      "bytes": 14757,
+      "sha256": "75df23f1021d87deeebef05d9df16909cdaf28114d2df9a320b3e505a9e8c7d3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/KempeTools.lean",
+      "bytes": 10725,
+      "sha256": "6366b0ee21d58bcfa37a8fcdcbb37c43fe436193a406709acfbd4db813858c74"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Kierstead.lean",
+      "bytes": 13064,
+      "sha256": "3e16db90a7c4989c7d4a2776d934040bd39f115ae89bc63e38e0bc09b768a50b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Kierstead4.lean",
+      "bytes": 32593,
+      "sha256": "2ffbf3350b4089e32f6c048825c898c15420e525e612e2f4a36c1655766c7559"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Lemma25.lean",
+      "bytes": 4528,
+      "sha256": "23cd6c0f310b11eec5d9123a10343b620b50da400c18bc84afc1496d8698290a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Linkage.lean",
+      "bytes": 11153,
+      "sha256": "a077cbd445ce84fe0cbb2bc13543f1e044998fd1ba7ab4c24047a0914f344efc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Multifan.lean",
+      "bytes": 13610,
+      "sha256": "b5cd39448166c28e8e7bc90e1e42e1313eb86c5a1a4e95e7b29377830fe5dca2"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/Shift.lean",
+      "bytes": 3720,
+      "sha256": "5f07ee873637697e448bd4a2d0f96e871377098ae431a4aabc3063ab166c6203"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Overfull/VAL.lean",
+      "bytes": 11833,
+      "sha256": "08ed1a24513f5ba99930c76159ac56383cc52734a24ef18f7ca3960eb0a2aedb"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/AlignedInternal.lean",
+      "bytes": 6575,
+      "sha256": "d7f75661701e59b17bd850d478f0bb9fa6568257ac1007ca5c58b60b1ff4f54d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/BipartiteCopies.lean",
+      "bytes": 5103,
+      "sha256": "6d9be8c4d2a57ef75a173fc9b2e670bc1626606f9cb790d9ce40802f01a91c7c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/BipartiteFactorization.lean",
+      "bytes": 4864,
+      "sha256": "2271a8754fc2bcc90b7a744e5c8dc0df9038e0f3b09aee9b5e7415fa7c15e35d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/CapacityTwo.lean",
+      "bytes": 5640,
+      "sha256": "3e60de0f05ee81e7412dfdd8672543f02766d8672c1aedebadeea2209c3fe6b7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/CenterPartition.lean",
+      "bytes": 7125,
+      "sha256": "18add7195df57ab75d2ee6c547f078252d3ca9d1929dfd6eaddaf4c925ea7d72"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/ColourBalance.lean",
+      "bytes": 2133,
+      "sha256": "274204f65e9819da4694b0ee6f4ad98d6c12f313c7471d3d44edbe68c0880dab"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/Critical.lean",
+      "bytes": 14751,
+      "sha256": "f5dfad9ff6a8f8367faeda3d8fdeba9d1908807e0e81ce70d99576a4334bdadd"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/DegreeBudget.lean",
+      "bytes": 7160,
+      "sha256": "9915f6705b3aaffe44ca650e9ff1b76a2255e625bfbee5efb8f9dee77c4a90d2"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/EquitableComponents.lean",
+      "bytes": 6969,
+      "sha256": "8b9409d0034a272200451d7538c92835b680a70fed2629848b2ff31ed7cc6c88"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/EquitableRecolouring.lean",
+      "bytes": 7139,
+      "sha256": "7e9956af0e2002baf586d4143340fc7c13e1d236e62e8bf0961a59581ae4fd92"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/FactorizationAssembly.lean",
+      "bytes": 5900,
+      "sha256": "62a1478907ebd41cda18d5c785c097b11a660be5931548a922279d7b8b4e4b2d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/GeneralCopies.lean",
+      "bytes": 3691,
+      "sha256": "ac7dbd1af28640b3f44d948b37e176ba5dbf0a7e890c10b9c2c4db946935bab1"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/Gluing.lean",
+      "bytes": 23384,
+      "sha256": "b05c93c57ae0cf18fff054cb8805daaf21132a907da6e6d413cf51e360f6415d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/InternalEdges.lean",
+      "bytes": 4154,
+      "sha256": "2e452c00589448d02e0e940224b06478d7ae9337757aaffa3929d5b72302f288"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/MatchingTutte.lean",
+      "bytes": 6504,
+      "sha256": "3a6daa829e691d21ec93b466d9a45d0a685ce4ca1936eb132990221b7345ad69"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/Multigraph.lean",
+      "bytes": 11913,
+      "sha256": "85c930abfa6e0a7d84e7484e0c1bd2c2b112869f8d900a9ec1538506686acfe3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/MultigraphColouring.lean",
+      "bytes": 3213,
+      "sha256": "479bcbf5cb49787a67190006e263b9746e73f25876a75fcc17ac089ad44b22b0"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/MultigraphCuts.lean",
+      "bytes": 6255,
+      "sha256": "9dbf9d125ba666d61f415ed7c13ea0c56bef030cf636ebe2b2e64738e9e5cdc5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/MultigraphExtension.lean",
+      "bytes": 6621,
+      "sha256": "9089454cc05f40aec92767f5c97915bc9b684c14d38a992b411c9583ea94958b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/MultigraphPartition.lean",
+      "bytes": 10541,
+      "sha256": "0bb1a9421003edca5bee8272ce20e35d48f21ee34adb32f4ebd7abcf6cfb57b5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/OddOrder.lean",
+      "bytes": 7369,
+      "sha256": "9594ac2c75ad78c1e0411350217de18021ee5008ef3d48c4bf0e12aacb06876a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/OverfullPreservation.lean",
+      "bytes": 5983,
+      "sha256": "9ecd4854872b80aa78146a632eade44a7b96602fa09804ec9a71d49c66397967"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/PairedPartition.lean",
+      "bytes": 5539,
+      "sha256": "7f97d17758dbac069ee3428c9488b8c241552bbb40eb0f3f212db1c19646c57f"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/PaletteAlignment.lean",
+      "bytes": 4127,
+      "sha256": "eeb68c5b0f7a98bde6e6d80ff0749d96497e0c0ea0fd69450118e6805acd8330"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/Saturation.lean",
+      "bytes": 14595,
+      "sha256": "a067511c2f34e7ac8b69bb8106a86dbbba9178c18dc5c4c269298b560d595691"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/ShannonBridge.lean",
+      "bytes": 651,
+      "sha256": "e346cc2ef23a23992c8baa3e42d45d3466a797fbcf02b047d2a83552cbdfdb7e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/SigningMoments.lean",
+      "bytes": 6715,
+      "sha256": "9b074de09920cff8098035d1fd50b5a6dd676d893500b37b054c0467ba14e97b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/StarFactorizationSetup.lean",
+      "bytes": 1706,
+      "sha256": "42e2a03dcc9b1a568b7180c07c8d3fd05e21f0cc3af0b2d7b10b4e61ce53ff02"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/WeightedComponentSwap.lean",
+      "bytes": 11518,
+      "sha256": "f1697200b4d54a04c794a77410f96762efa0f8cf3c22b1d52dff011b3af869d0"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/OverfullWork/WeightedComponents.lean",
+      "bytes": 11566,
+      "sha256": "a56f59577bbac02bb0cfea7061d058b36345d458a159e1fe017248f8928aa6f8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/PROVENANCE.md",
+      "bytes": 1763,
+      "sha256": "f857926cb31282465d5b278753168e217c95953f7670825296b7752eac8a834c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/PaletteAssembly.lean",
+      "bytes": 4936,
+      "sha256": "e83fd05b1f71e651063cd65afb35dd04fe60e63745add1035dcf7815b918524d"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/PaletteLoads.lean",
+      "bytes": 5008,
+      "sha256": "c3cbea6c60e9e44d5a09d477726c3fd7ba2e8d1c751555a2855ec0e3471a9368"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/PathPacking.lean",
+      "bytes": 3560,
+      "sha256": "44ced928fffb55b9190dfb748897d011fbf8fff61234b5a3a628621eca3e3243"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/PhysicalFactor.lean",
+      "bytes": 7238,
+      "sha256": "d704bb047ddf49edd836cf3adddccbabb987cbd8cae3152c72a99fd2c91f3f98"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/PhysicalRepair.lean",
+      "bytes": 7532,
+      "sha256": "4d8a01221c1e0dd242f3277f0bd6be9c3a4c20dfc4c170936408eed035f047cc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Plantholt/Basic.lean",
+      "bytes": 10091,
+      "sha256": "9811ccab774e7122de861b5b3fd252f0fefef651b95e4b3bc78a263093ae875e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Plantholt/Core.lean",
+      "bytes": 6719,
+      "sha256": "85058834446bd78cb983905ff20ebea7495cf70eb57232f9041825d7f8c12f24"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Plantholt/Dirac.lean",
+      "bytes": 10209,
+      "sha256": "a7dbbfb7c62d83c212ca698d7da13173276a30f35f9256390a59bfddbf009f61"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/Plantholt/Tools.lean",
+      "bytes": 9681,
+      "sha256": "fe78a3c718f007262bc0fb1e21625fb0c6f9ba8942ab9c4d27c432859472e4aa"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/README.md",
+      "bytes": 781,
+      "sha256": "7a99dbdb75f9ccbe3154500c113db57a5f552ee9c86199c2403732ac6588fdee"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/RegularHost.lean",
+      "bytes": 5499,
+      "sha256": "bf2e68d42cab2929fabd751b9c855e74e14bc7825a507a24a0fdb61321cad1b3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/RepairSelection.lean",
+      "bytes": 3193,
+      "sha256": "0462d8fa58e01fe0b26ae1c0ee54c1880ec991d9d652508df296044be63d6d15"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ReserveGraph.lean",
+      "bytes": 5661,
+      "sha256": "abfce66fce71d161c29595e1d7cb51483a4f78b17f00b0d123c8839dc1e56dec"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ResourceConflicts.lean",
+      "bytes": 2706,
+      "sha256": "40863fd7b112f956540a392aedf2609dd511d9ddb127e11afbfd3cdc390580f3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ResourceTotals.lean",
+      "bytes": 3621,
+      "sha256": "0f66b63329baac0fcedc882160b0bf570da2f54ac98c3e69a9aac78347792df5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ShannonColouring/Defs.lean",
+      "bytes": 1307,
+      "sha256": "2cde1b32ad8166aff0afef7729642b55ac582df7d700cf1654bee251d1f71361"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ShannonColouring/Kempe.lean",
+      "bytes": 12064,
+      "sha256": "edde2256ecd2c02f0510a54839a4af4b159d0f6922648eea93fd86425a1297f7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ShannonColouring/PathEnds.lean",
+      "bytes": 3731,
+      "sha256": "433706a467318e0c18f469ed022bd93435c83b40508b96fc1e7ef28c4f434a3e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/ShannonColouring/Shannon.lean",
+      "bytes": 12482,
+      "sha256": "7201c2ad7facb0aa122bb1fc0c38f79d0eb8244574dd53ee8ee87b0c6f90614f"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/SimpleIncidence.lean",
+      "bytes": 7665,
+      "sha256": "17665acca799ace5e42849c132efc7c70c151de95489c26da3551cb8faad511f"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/SparseBudgets.lean",
+      "bytes": 3344,
+      "sha256": "46250ce4e02e49c5ded7b805d74333db185a1ea496b7f0be6256bf01475b82c6"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/SpectralRepair.lean",
+      "bytes": 5056,
+      "sha256": "6fd0257ae6f5f680d9d6862765659b3776a35d372d1361e48f9f4b97d59826d9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WECRAudit.lean",
+      "bytes": 10583,
+      "sha256": "715d69b38fb9b40c4ac30506e2fbe06b3a1ceaee2600f35ace541804685e2328"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WECRRepair.lean",
+      "bytes": 3714,
+      "sha256": "d47641fca996b45a7df67538e6f6292dc46523a3d7b8f31d9fd33a820adce586"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WalkKernel.lean",
+      "bytes": 6500,
+      "sha256": "2a4ad16d241ff24cbaf4ec0d01d791fe5c758cd555f4212fba19f97d63d74ab5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WalkOccupancy.lean",
+      "bytes": 6433,
+      "sha256": "0e99dd81cce0579c09b9d17d1b65a8ecdfb76b061aea69b679ae0014759d0aa9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WalkResources.lean",
+      "bytes": 7503,
+      "sha256": "3591f73e64343424ea8b13da979f36bbf7a2b368aae1daa0d5b5f8acc6abe7b2"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Assembly.lean",
+      "bytes": 7722,
+      "sha256": "c8b5ac1f19e11dbc18a7032a61b52f4e60ad710b48c6ae2e935bd823b39e6da8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockCapacity.lean",
+      "bytes": 19605,
+      "sha256": "eeb6dfb9ee7f16e82d31736e73e2bd8625e2cfc8155a39d146b91a7e8d09c86a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockCutCriterion.lean",
+      "bytes": 6405,
+      "sha256": "2955b1a7ea00606b005a878b77bf5d34b60a33e1c10e8bc1a32128c091a2ce11"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockDeficit.lean",
+      "bytes": 12269,
+      "sha256": "9cb32da81cbe2181c5fa7113bdfbee867518f2567e086b630dbd04768106455b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockExample.lean",
+      "bytes": 10659,
+      "sha256": "1c9f85fc7e565409eabec99cb40dd09428c35687037d77380541246cdc8150c4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockFactorization.lean",
+      "bytes": 5920,
+      "sha256": "a435de17f4b90b89648af5ce1d7ba4af17faac6a2c6d98778d09cf97429c39ff"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockGraph.lean",
+      "bytes": 16150,
+      "sha256": "968ab2715943d2fea21c4d94c028004ad7a074a514d9766d97ef37ca24e8c1c4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockMatching.lean",
+      "bytes": 6723,
+      "sha256": "7a2a8f778f66669ad75f71a7a9c661d98af5e69cd23a83030b3bdc4349133410"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockPartialCompletion.lean",
+      "bytes": 13197,
+      "sha256": "f5132b649026347a3692b62d3581d4e2678dcc4dd448bd4e6cffd41ca74089cc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockPartialPacking.lean",
+      "bytes": 7426,
+      "sha256": "2f5e9569e5bead3f36ccb0d6e37e9788a49c2038f7e64d9888e5a3d786e73fb8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockRecolouring.lean",
+      "bytes": 1645,
+      "sha256": "53783d74194993312e10b381d314e2734ad838d11a273baa9d72fa234afc9593"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockRelabel.lean",
+      "bytes": 2367,
+      "sha256": "fcc8eb38b28ec21b35f53c1d252b4eaad953bb7d51d1a04695e45ab1435a9f29"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockSpectral.lean",
+      "bytes": 5488,
+      "sha256": "22708696ec2198ee2fc06f6d543d30796ec9b404a5215612ddd962e3882b4a87"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockTransport.lean",
+      "bytes": 13722,
+      "sha256": "18a5920497e0842e501c744722d6a46d4d2658dfb0c1409330dfef8930f77604"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/BlockTrim.lean",
+      "bytes": 5648,
+      "sha256": "30914ee6d68edffea02aa9a8d4f1a0c27ac57de46290187c5f5730970aac7dc4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/HostAssembly.lean",
+      "bytes": 4342,
+      "sha256": "ad3cd5aa087d24caf73bed641119b7f81c2c4f5007173776aebf96f239279848"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Blocks/TwoBlockDeficit.lean",
+      "bytes": 916,
+      "sha256": "0a018910b1577232cab1418af0e66534f2d07d7d1a77bb31f0976265e1a6b8fe"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Criterion.lean",
+      "bytes": 3224,
+      "sha256": "e064f2e00e2fa9cbfc6ea4f764008f730bab87ceaccb1ec0c289a15c8c9addb7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/CrossingPacking.lean",
+      "bytes": 5948,
+      "sha256": "569f5426039cd25e20ef8fb1e737880848a3e9e2647ab0a0fc6ba97d278aaeb5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/CrossingReserves.lean",
+      "bytes": 2028,
+      "sha256": "6a10477193991d6cae9d9316e44599d276ff4a85b65eb88e8714110f198aa1e7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/AuditExtension.lean",
+      "bytes": 1228,
+      "sha256": "465700b4010db0b281fe4d00b43a71a46f04c09326e8a1b70496b4e4c07c2399"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/CenteredAllowance.lean",
+      "bytes": 7606,
+      "sha256": "f9b840112a0b416b676666a9dda79715adcb5e24c7cc166aeca7ff5a5df2b740"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/ExactIncidence.lean",
+      "bytes": 5197,
+      "sha256": "d969d77f259954b9975c06e2ba97b0d70f6b2b12e9d1c2a80e056e2ad7111e4a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/ExactReserves.lean",
+      "bytes": 5822,
+      "sha256": "a645776497a35bac0ee69e9e7092f6151ef08f79a69335395c8c5783d35052e7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/ExampleRanges.lean",
+      "bytes": 7427,
+      "sha256": "360bb83e5b82f72a93438221770c23408f512ea83eb6da0f3356189a597f205a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridCoordinates.lean",
+      "bytes": 1637,
+      "sha256": "f65a6b3bacb6b1b72b048a65b1574473fb95752045d0042488557f5b9658df79"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridFactorization.lean",
+      "bytes": 2414,
+      "sha256": "eb4dd7bdc8589a61b2e2f34dec5cc828247e82cfdede6765237dc1a879a3df97"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridHost.lean",
+      "bytes": 5521,
+      "sha256": "3b5b597785cb8aae22f07598e09ebcc8cbdf7268ab8e940b24d28e03559c0ed6"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridParameters.lean",
+      "bytes": 1533,
+      "sha256": "6d676f992a0a9abcab8bb8de3c80fb00182a76b80560497b04b4b425e1ce543f"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridRange.lean",
+      "bytes": 10471,
+      "sha256": "769ad83c2043e9f443a9486edb3415f81e80097232c53d7c0e09fba8ee08faaa"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridSeparation.lean",
+      "bytes": 5675,
+      "sha256": "fc3116b325b84e82e53b20610a70a85b610bfb661d3fa882c508cdba5d7a3dbf"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/GridSpectrum.lean",
+      "bytes": 5249,
+      "sha256": "0d49c6f99de7989a458dc80fbf0fc946d61062905e90723c0ef506393d219acd"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/Mixing.lean",
+      "bytes": 3107,
+      "sha256": "b89602a06d36646ccbccd9ac2bedef69261b416d21e4fde36e02d801f275da8c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/MixingCoefficient.lean",
+      "bytes": 3121,
+      "sha256": "005dfab292b6fb40a6264e758b1f82d155526845f76de0597b69344a6762a54b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/PairDegreeCuts.lean",
+      "bytes": 8903,
+      "sha256": "66267208d73c4c63e92832fecf6e66fdd45d998367e91379dd33256073a62fe7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/PairDegreeFactorization.lean",
+      "bytes": 10532,
+      "sha256": "29811d00f14a8db0d45c8d0c7de00c202c03ced174a12c4b0af9b8dc61923b4e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/PairDegreeHall.lean",
+      "bytes": 7097,
+      "sha256": "36706a1adcfdeb50eb2fdb75bf69e6fc498283e68f6a858edd7feff3a4b19e85"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/PairDegreeHost.lean",
+      "bytes": 2241,
+      "sha256": "01f6e2114f368c86624ce0b7c8314144550beee500c3a88bc38a578228f5da64"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/RectCoordinates.lean",
+      "bytes": 1707,
+      "sha256": "b291ac4b10e51f3a96956dc5adafec4b0494d98470effdbb1a153aa60131a441"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/RectFactorization.lean",
+      "bytes": 2594,
+      "sha256": "a2c18127a69108666e7b3578ca70f69536ca43a410c2dedc77251d6aec98c00b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/RectHost.lean",
+      "bytes": 6248,
+      "sha256": "524089e3c39f94d47f87e78f473825a5087ce8617fbdb892e106b74e9de6368c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/RectParameters.lean",
+      "bytes": 4037,
+      "sha256": "be330878f83ca809dcacb6940f329d5102ed7acb460bb3d56078f0b5c1237bd9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/RectSeparation.lean",
+      "bytes": 6224,
+      "sha256": "cad4dad7a8076f0cd8ce58ca600ff62d8396c6b02614d3cbb4b02698986528f3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/RectSpectrum.lean",
+      "bytes": 5772,
+      "sha256": "4874f4fc724f8770e99501ccc53d24a7b10b512ecdba0305c1e9d4e67951b736"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/ReleaseAudit.lean",
+      "bytes": 9686,
+      "sha256": "43c65347d3786920b3eeb966e337df04e92eddb8f7b69eae5d84d344248493d5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/SpectralBudget.lean",
+      "bytes": 4580,
+      "sha256": "5c06cb8e810b08ffd78a26baecb59641c7976adb4aac90a615f90d2f1c21c75b"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/SpectralCut.lean",
+      "bytes": 4036,
+      "sha256": "455fc8cc04873005056512c2a50d128c03dec30df28f009dca8212b924159dfc"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/SpectralFactorization.lean",
+      "bytes": 7175,
+      "sha256": "09d53a5102d5b8a22b32f1e11c3762b1c4481ac84d32e508466b6a88bc264de6"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Cut/SpectralHost.lean",
+      "bytes": 2108,
+      "sha256": "e958bf7adae950f514890be8374dab3a9fc1126030bf1ee308640d7136f5d2df"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/DenseCut.lean",
+      "bytes": 8058,
+      "sha256": "bb5d0b2badebd52d0b232b3dff6d63d52ac42703b30e86f7ebb6e8c3fb7cb4e1"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/EuclideanBalance.lean",
+      "bytes": 4174,
+      "sha256": "5f06a30eb5f8704b85b11cbb27f64eaa3bf18f7abc7fb05abb16a1e68c28987e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/Capped.lean",
+      "bytes": 5652,
+      "sha256": "ba9162d44c86958c5d708718015d7f709fc1796425d9b1ab6ebbd0e24c22edce"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/Centered.lean",
+      "bytes": 7583,
+      "sha256": "fb318fae170a8c2225ffbc69e1dfd03be0d0bc9435055a98a9a3f05a79bb7acf"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/FiveBlocks.lean",
+      "bytes": 6022,
+      "sha256": "8fd7e0a4470d70f6d7e36684962b3a157753596f9f17136e1ea026306d54f408"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/Host.lean",
+      "bytes": 6016,
+      "sha256": "3c6c73b9ce67c667244bb057ef5d34ad3242a8728ec87ffdfb6e1b897164f521"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/HostBudget.lean",
+      "bytes": 8791,
+      "sha256": "969cdef10e2f0cd237f385aca02b56d16b8e61b00dea3c7c9ae5547724e5b6ac"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/HostCut.lean",
+      "bytes": 8487,
+      "sha256": "d0fcefc8a73eea9709ed1d0419c9be9ad8ab2a4ee87c8d6b2105a0970b786914"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/Matrices.lean",
+      "bytes": 2162,
+      "sha256": "3acef9f6743a84eb9f927cc9bf4ef2e61a7b51133cbb4cf9224df38afd10e4d6"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Examples/Robust.lean",
+      "bytes": 10025,
+      "sha256": "dfcd8fc16085eaa685eac6c8197b08aadef72bee118162475bc22c18c3627bcd"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/FullCriterion.lean",
+      "bytes": 6970,
+      "sha256": "9b384a459c4c96c07ab967d1bfecacf4ed0b573daec83d2c10a3b73a15b78619"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Hall.lean",
+      "bytes": 12243,
+      "sha256": "ac39b9e0701cbea04ffd2906069c971cd31333a63d5428f022c908d4c4dffb1e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Incidence.lean",
+      "bytes": 6969,
+      "sha256": "bf2b3279406d89863bcac1608e84c52474a540c0375accbb9a8c92ca38b4c00e"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/IntrinsicBalance.lean",
+      "bytes": 3349,
+      "sha256": "0c5de3e265f09a3a23c1e953a292fadc956d936c9863b6b79b8582f41b30bb4a"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/RankOne.lean",
+      "bytes": 5265,
+      "sha256": "87f93d24156aedb901cda2eb62037febd966d3b07a4c72db789c77ede772d20c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/RecolourToReserves.lean",
+      "bytes": 6907,
+      "sha256": "8ec6f99bc563a52a99ebcfff0ab01ae453459fc6ab5eb37ec7fad8baea44d599"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/Recolouring.lean",
+      "bytes": 94,
+      "sha256": "e07e460548df077babf6af40dd7871b39818a735d5bb86135813555c5453bf78"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/RobustCut.lean",
+      "bytes": 9037,
+      "sha256": "107faa5f4783cb9f876dc36f7b94f1489b38e62dbdf6f79714251ce307a48d01"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/ScaledHall.lean",
+      "bytes": 7528,
+      "sha256": "1dd14dfa1f7a20a71dbcf79f40f263fd0a485d18ddb89b7647018b1fe32447f5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/VectorBalance.lean",
+      "bytes": 8680,
+      "sha256": "104c896f063e7097d3e48cae48b3ebd06d59bec2e2ad139ba0f4841099d7f446"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/VectorComponents.lean",
+      "bytes": 9087,
+      "sha256": "bbf6e52fdb7dbe35472af9d02f2d1495a7d21c54fd14ed66eca82362fac50601"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/VectorRounding.lean",
+      "bytes": 5091,
+      "sha256": "563bfb3572cd7e6e58d73fc8bf35ac211b7804106b48b2fcc95b34b81eb0d300"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/VectorSharpness.lean",
+      "bytes": 6168,
+      "sha256": "5dee94cc9c8049018513a7cf91a9e673c544fff701282d7a9bc8c712d4baa908"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper/VectorSparsity.lean",
+      "bytes": 7283,
+      "sha256": "985ec8cef4c673ee541a8f338e7560c01d581d6a4d791929dd1907b160d849e8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedPaper.lean",
+      "bytes": 699,
+      "sha256": "3a276f7c8c83421054fe1119403b5884897d02a78d4362063c19137fb9522633"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedRecolouring/Balance.lean",
+      "bytes": 5986,
+      "sha256": "5a55ac70ed5255531952068240e2b8f55a9157c55ffd9709904680ce710d3abd"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedRecolouring/Components.lean",
+      "bytes": 5946,
+      "sha256": "723594db07153d45d7ef588eceef51d6c5d81aa2f1577f1b6012a5ecb983b8e5"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedRecolouring/SharpGraph.lean",
+      "bytes": 1139,
+      "sha256": "827de260be0051cecd88d5403b046cdc6053579ea83dd964dd7648d8897c70e9"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedRecolouring/Sharpness.lean",
+      "bytes": 7911,
+      "sha256": "7963a2a6ce2b82386f40439ffac3292228003d0a33045440861443c714f21ef7"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedRecolouring/Signing.lean",
+      "bytes": 10597,
+      "sha256": "a47f6d1614f8eb42a18c2dddb4c797c632cb972f9c558540936b6fb3ffecdcff"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/WeightedRecolouring/Statement.lean",
+      "bytes": 419,
+      "sha256": "f51737367b0c5ed7154a87d2ee075b2ffa1208967698837642d4a41396cae3aa"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/evidence/SHA256SUMS",
+      "bytes": 21580,
+      "sha256": "376fd2310ce565eecf5b906015d28951bce7557657bfd0bd9997ea90d4eac5db"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/evidence/axioms.txt",
+      "bytes": 17881,
+      "sha256": "b9293069c2326e9857f72639ce95892bcb1e92c1eccd985abafe848ebd0451c4"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/evidence/build.log",
+      "bytes": 323781,
+      "sha256": "81b9a392a3ce582254e9e4831960215cd2fec5a317ed2fcfcd04603de08af295"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/evidence/kernel.txt",
+      "bytes": 7533,
+      "sha256": "6119b39d9de3891a05df7fc80c0ffa2ac8ec4f337c75bbeec318eb3941c1c8d8"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/evidence/toolchain.txt",
+      "bytes": 110,
+      "sha256": "948624fc4eacf0eb148f98d864af4814b3e60174b0a53f6817afc937e41279d3"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/lake-manifest.json",
+      "bytes": 4370,
+      "sha256": "bc66e5b9ff6eb54bedce47ac276191119ac3780c9f1a29d555f2974c17d3f00c"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/lakefile.toml",
+      "bytes": 6934,
+      "sha256": "74a18fb5f7dfd9961121c067eeea2f14333a2316e920b43a7aa5795798edcb49"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/lean-toolchain",
+      "bytes": 29,
+      "sha256": "bc84812c94489d1e3e191baa1dc10d5eb684382d7fe9d2a5ab085e72c1c67e47"
+    },
+    {
+      "path": "preprints/WECR/05_formalization/lean435/verify.sh",
+      "bytes": 1770,
+      "sha256": "30726bd39bbb10b7fcc0b0c8b3c60a734943e215b5d8814da3961b6eabef7605"
+    },
+    {
+      "path": "preprints/WECR/README.md",
+      "bytes": 1339,
+      "sha256": "60f84eba3096d49e57f4878cbe49918a41c4f4b7c46ec7b61d068dc57c16d594"
+    }
+  ]
+}

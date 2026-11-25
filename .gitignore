@@ -1,0 +1,8 @@
+.lake/
+*.olean
+*.ilean
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+__pycache__/

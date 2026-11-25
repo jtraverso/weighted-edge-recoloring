@@ -1,0 +1,70 @@
+\section{Asignación de excepcionales y déficits exactos por bloques}\label{sec:block-routing}
+
+Podemos dividir los vértices ordinarios de un corte en bloques correspondientes. Aunque un color deje el mismo total de vértices libres en ambos lados, los conteos pueden diferir dentro de un bloque. Asignar un excepcional a un bloque usa un ordinario del lado opuesto y cambia esa diferencia en uno.
+
+Fijemos un color. Escribimos \(u_j,v_j\) para los conteos de ordinarios libres a la izquierda y a la derecha del bloque \(j\) y ponemos \(\delta_j=u_j-v_j\). Sean \(X,Y\) los conjuntos de excepcionales libres de cada lado. Cada excepcional tiene un conjunto de bloques elegibles. Si \(p^A_j,p^B_j\) cuentan los excepcionales de izquierda y derecha asignados a \(j\), quedan \(u_j-p^B_j\) y \(v_j-p^A_j\) ordinarios en sus respectivos lados. Estas cantidades son iguales exactamente cuando
+\[
+ p^B_j-p^A_j=\delta_j.
+\]
+El balance total de vértices libres da \(\sum_j\delta_j=|Y|-|X|\). Para un conjunto \(S\) de bloques, sea \(L(S)\) el número de excepcionales izquierdos cuyos bloques elegibles están todos en \(S\), y \(R(S)\) el de excepcionales derechos con algún bloque elegible en \(S\). Escribimos \(\delta(S)=\sum_{j\in S}\delta_j\).
+
+Por ejemplo, supongamos que hay dos bloques con \(\delta_1=1\) y \(\delta_2=-1\). Se pueden satisfacer las hipótesis de anchura de abajo tomando \((u_1,v_1)=(\theta+2,\theta+1)\) y \((u_2,v_2)=(\theta+1,\theta+2)\), con umbral \(\theta\) en ambos bloques. Si el excepcional izquierdo solo puede usar el bloque~1 y el derecho solo el bloque~2, entonces \(L(\{1\})=1\) y \(R(\{1\})=0\). El corte del primer bloque tiene una diferencia de \(1-0+1=2\). Permitir al excepcional derecho usar ambos bloques reduce la mayor diferencia a \(1\). Permitir también al izquierdo usar ambos bloques la reduce a \(0\), pues ahora podemos enviar al izquierdo al bloque~2 y al derecho al bloque~1. El Teorema~\ref{thm:block-deficit} convierte esas diferencias de corte en déficits exactos de emparejamiento.
+
+\begin{lemma}[Asignación por bloques]\label{lem:block-assignment}
+Supongamos que hay balance total. Existe una asignación elegible con \(p^B_j-p^A_j=\delta_j\) en cada bloque si y solo si
+\[
+ \delta(S)\le R(S)-L(S)
+ \qquad\text{para todo conjunto \(S\) de bloques.}
+ \tag{A}\label{eq:block-assignment}
+\]
+Si además se exige \(p^B_j\le c_j\) para enteros no negativos dados \(c_j\), la condición necesaria y suficiente es
+\[
+ \delta(S)\le R(T)-L(S)+\sum_{j\in S\setminus T}c_j
+ \qquad\text{para todo par \(S,T\) de conjuntos de bloques.}
+ \tag{C}\label{eq:block-capacity}
+\]
+\end{lemma}
+
+\begin{proof}
+Para \eqref{eq:block-assignment}, construimos una red con un nodo por cada bloque y por cada excepcional. Sus arcos de capacidad uno van de los excepcionales izquierdos a los bloques elegibles y de los bloques a los excepcionales derechos elegibles. Las entradas netas prescritas son \(-1\) en los excepcionales izquierdos, \(1\) en los derechos y \(-\delta_j\) en el bloque \(j\). Un flujo entero con esas demandas da los conteos buscados. Por el teorema de factibilidad de Gale, la demanda en el complemento de cada corte debe ser a lo sumo la capacidad que entra en él \cite{Gale}.
+
+Fijemos el conjunto \(S\) de nodos de bloques del lado de la fuente. El aporte de los bloques a la demanda en el complemento es \(-\delta(S^c)\). Un excepcional izquierdo en el complemento aporta \(-1\). Del lado de la fuente aporta el negativo del número de sus bloques elegibles fuera de \(S\), una vez descontada la capacidad entrante. Al maximizar sobre el lado que contiene a este excepcional obtenemos \(0\) si todos sus bloques elegibles están en \(S\), y \(-1\) en otro caso. Del mismo modo, el aporte máximo de un excepcional derecho es \(0\) si puede usar un bloque en \(S\), y \(1\) en otro caso. La diferencia máxima entre demanda y capacidad entrante es por tanto
+\[
+ -\delta(S^c)-|X|+L(S)+|Y|-R(S)
+ =\delta(S)+L(S)-R(S).
+\]
+Esto prueba la primera afirmación.
+
+Para \eqref{eq:block-capacity}, introducimos dos copias \(j^-,j^+\) de cada bloque. Los excepcionales reales izquierdos solo usan la primera, y los derechos solo la segunda. Para cada \(j\) añadimos \(c_j\) excepcionales izquierdos elegibles para cualquiera de las dos copias. Prescribimos diferencias \(\delta_j-c_j\) y \(0\) en la primera y segunda copia, respectivamente. En la segunda, la cantidad añadida debe ser \(p^B_j\), y los otros \(c_j-p^B_j\) añadidos van a la primera. La primera copia fuerza \(p^B_j-p^A_j=\delta_j\). La construcción funciona en ambos sentidos. Al aplicar \eqref{eq:block-assignment} a los bloques duplicados se obtiene la condición con dos conjuntos. Un corte con las primeras copias de \(S\) y las segundas de \(T\) ya descontó \(c_j\) de la demanda para cada \(j\in S\). Los excepcionales añadidos quedan forzados a entrar en el corte precisamente para \(j\in S\cap T\), lo que cancela esas capacidades. Las capacidades restantes en \eqref{eq:block-capacity} corresponden a bloques con \(j^-\) en el corte y \(j^+\) fuera.
+\end{proof}
+
+Para el paso de emparejamiento, supongamos que cada excepcional elegible tiene en su bloque una reserva ponderada suficiente para Hall después de gastar a lo sumo \(k-1\) copias cruzadas previas en cada vértice. Las cotas por columna cuentan todos los excepcionales elegibles de ese lado del bloque. En particular, se aplican a cualquier conjunto de excepcionales asignados allí. Por Hall emparejamos a los excepcionales asignados con ordinarios, por separado para los excepcionales izquierdos y derechos. Los dos emparejamientos son disjuntos porque usan conjuntos opuestos de excepcionales.
+
+Supongamos también que cada bloque \(j\) tiene un umbral ordinario \(\theta_j\). Cuando dos subconjuntos ordinarios no vacíos \(S,T\) de lados opuestos de ese bloque cumplen \(|S|+|T|>\theta_j\), algún vértice de \(S\cup T\) tiene al menos \(k\) copias cruzadas originales hacia el subconjunto opuesto. Entonces dos conjuntos ordinarios libres del mismo tamaño, al menos \(\theta_j\), se pueden emparejar a pesar del gasto anterior. Si el emparejamiento falla, Hall da dos conjuntos no vacíos sin aristas residuales y cuya suma de tamaños excede el tamaño libre común. Se habrían gastado todas las copias entre ellos, contra la cota de \(k\) copias.
+
+\begin{corollary}[Factorización con capacidades por bloque]\label{cor:block-factorization}
+Sea \(M\) un multigrafo regular con un corte equilibrado. Supongamos que las aristas internas tienen un coloreo propio con \(k\) colores y que cada color deja igual número de vértices libres en ambos lados. Usemos las reservas ponderadas locales y los umbrales ordinarios recién descritos. Para cada color exijamos \(u_j\ge\theta_j\) e impongamos \eqref{eq:block-capacity} con \(c_j=u_j-\theta_j\). Entonces los colores internos se pueden completar con copias cruzadas disjuntas y \(M\) tiene una 1-factorización.
+\end{corollary}
+
+\begin{proof}
+El Lema~\ref{lem:block-assignment} da una asignación que respeta \(c_j\). Tras emparejar a los excepcionales, los conteos ordinarios del bloque \(j\) son iguales y \(u_j-p^B_j\ge\theta_j\). El paso de emparejamiento ordinario completa el color. Después de completar todos los colores internos, factorizamos el residuo bipartito regular como en el Teorema~\ref{thm:factor}.
+\end{proof}
+
+La mayor diferencia de corte mide el costo de incumplir la condición de balance. La hipótesis de anchura del siguiente teorema permite aplicar el paso de emparejamiento ordinario con cualquier asignación elegible, incluso si un bloque recibe todos los excepcionales del lado opuesto.
+
+\begin{theorem}[Déficit exacto]\label{thm:block-deficit}
+Fijemos un color con conteos libres totales iguales. Supongamos que cada excepcional tiene al menos un bloque elegible, que valen las reservas de Hall y los umbrales ordinarios anteriores, y que \(u_j\ge\theta_j+|Y|\) y \(v_j\ge\theta_j+|X|\) para cada bloque \(j\). Entre las completaciones parciales que cubren a todos los excepcionales y respetan sus asignaciones y la partición ordinaria en bloques, el mínimo número de vértices sin emparejar en cada lado es
+\[
+ d=\max_S\bigl(\delta(S)-R(S)+L(S)\bigr).
+ \tag{E}\label{eq:block-deficit}
+\]
+Los mínimos de todos los colores se pueden alcanzar con copias cruzadas disjuntas. Cambiar las listas de elegibilidad de a lo sumo \(r\) excepcionales cambia el valor de \eqref{eq:block-deficit} en a lo sumo \(r\).
+\end{theorem}
+
+\begin{proof}
+Para cualquier asignación elegible, la suma de las partes positivas de los desbalances después de asignar es al menos \(\delta(S)-R(S)+L(S)\) para todo \(S\). Un emparejamiento dentro de los bloques deja sin emparejar al menos esa suma de desbalances positivos en la izquierda. Esto prueba la cota inferior.
+
+Los cortes del conjunto vacío y del conjunto completo tienen diferencia cero. Añadimos \(d\) excepcionales por lado, todos elegibles para todos los bloques. Para cada conjunto no vacío y propio de bloques, el lado derecho de \eqref{eq:block-assignment} aumenta en \(d\). Las desigualdades del vacío y del conjunto completo siguen cumpliéndose. El Lema~\ref{lem:block-assignment} asigna todos los excepcionales. Luego descartamos los añadidos. Quedan a lo sumo \(d\) unidades de desbalance positivo, pues en la derecha se añadieron \(d\) excepcionales en total.
+
+Las reservas ponderadas cubren a los excepcionales reales con esta asignación. El lado ordinario menor que queda en cada bloque tiene al menos \(\theta_j\) vértices. Recortamos el lado mayor a ese tamaño y aplicamos el paso de emparejamiento ordinario. El conteo sin emparejar alcanza la cota inferior. Esto funciona después de gastar hasta \(k-1\) copias previas por vértice, de modo que al repetir por colores se alcanzan todos los mínimos. Por último, cambiar la lista de un excepcional altera \(R(S)\) o \(L(S)\) en a lo sumo uno para cada corte. La misma estimación vale para el máximo.
+\end{proof}

@@ -1,0 +1,6 @@
+# Proof constants · Preprint 1.0
+
+- The conflict budget in (P) is \(4/27\). For a pair of requests the dependency neighborhood can be partitioned by the request it shares. Applying the product bound in each part gives \(4/9\), with local-lemma weights \(9p/4\). The maximum of \(y^2(1-y)\) over \(y\ge0\) is \(4/27\), attained at \(y=2/3\). This identifies the best constant for that product estimate and a common scaling of the event probabilities.
+- In the grid, choosing \(\lceil d/2\rceil\) eligible helpers at each hole and edge-coloring the resulting bipartite graph replaces the sequential Hall bound. The schedule needs \(\lfloor d/2\rfloor\ge2r+4\) and \(r\le\lceil d/2\rceil\). Both hold for all \(b\ge1\) and even \(q\ge12\). The finite check solves the scheduling inequalities independently at \(q=12\), with \(b=1,2\).
+
+The spectral ratio \(3/4\) was checked against the numerical inequalities used in the Hall-deficit argument. At \(h=0\), \(p=d/8\) and \(s=t=N(1+\varepsilon)/2\), the allowed spent mass is \(e=ps\). The mixing ratio required to accommodate this mass is \((3/4+\varepsilon)/(1-\varepsilon)\), which tends to \(3/4\) from above. The other numerical inequalities hold, for example with \(d=N/2\). This is a limiting example for the proof inequalities. It makes no assertion that a multigraph realizes those data.

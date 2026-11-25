@@ -1,0 +1,501 @@
+\documentclass[11pt]{article}
+\pdftrailerid{}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{xcolor,xurl}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\renewcommand{\abstractname}{Resumen}
+\renewcommand{\proofname}{Demostración}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\figurename}{Figura}
+\DeclareMathOperator{\spanof}{span}
+\newtheorem{theorem}{Teorema}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{lemma}[theorem]{Lema}
+\title{Recoloreo ponderado de aristas y 1-factorización a través de un corte}
+\author{Juan Pablo Traverso Gianini\\\small Investigador independiente, Santiago, Chile\\\small\href{mailto:jtraverso@gmail.com}{jtraverso@gmail.com}\quad\href{https://orcid.org/0009-0003-6068-4096}{ORCID 0009-0003-6068-4096}}
+\date{Preprint 1.0 · 24 de noviembre de 2026 · \mbox{\href{https://doi.org/10.5281/zenodo.24521352}{DOI 10.5281/zenodo.24521352}}}
+\hypersetup{pdftitle={Recoloreo ponderado de aristas y 1-factorización a través de un corte},pdfauthor={Juan Pablo Traverso Gianini},pdfsubject={Preprint 1.0, DOI 10.5281/zenodo.24521352}}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Para completar un coloreo interno de aristas a través de un corte equilibrado hay que dejar suficientes copias cruzadas para cada color, en especial en los vértices con pocos vecinos ordinarios distintos. Demostramos una cota de recoloreo ponderado que conserva el tamaño prescrito de cada clase. Para tamaños iguales, la cota escalar es aguda y el orden óptimo para pesos vectoriales es la raíz cuadrada de la dimensión del espacio generado por los pesos centrados. Las reservas ponderadas de Hall permiten tratar varios vértices excepcionales a la vez. Al dividir los vértices ordinarios en bloques, la mayor violación de una desigualdad de corte da el déficit exacto del emparejamiento bajo una hipótesis de anchura. Cada color alcanza su déficit con copias disjuntas. Damos también un criterio de 1-factorización que combina las reservas de los excepcionales con un \emph{nibble} hipergáfico y una reparación simultánea en una reserva espectral. Una familia regular de rejillas tiene \(\Theta(\sqrt N)\) vecinos ordinarios cruzados distintos por vértice ordinario y \(\Theta(N^{1/4})\) excepcionales por lado, donde \(N\) es el número de ordinarios por lado. Una construcción directa factoriza la familia a partir de un umbral explícito, aunque el criterio de rectángulos falla en el corte dado para toda paleta admisible.
+\end{abstract}
+
+\section{Introducción}
+
+Los coloreos internos y los emparejamientos cruzados de Shan~\cite{Shan} y de Chen, McDonald y Shan~\cite{CMS} sugieren el siguiente método para un multigrafo regular de orden par. Dividimos sus vértices en dos partes iguales, coloreamos las aristas de los subgrafos inducidos y completamos cada color interno a un emparejamiento perfecto mediante aristas cruzadas. El multigrafo residual es regular y bipartito. Si las dos clases internas de cada color tienen el mismo tamaño, quedan tantos vértices libres de un lado como del otro. También importa \emph{cuáles} quedan libres, especialmente cuando un vértice tiene pocos vecinos cruzados distintos y sus aristas tienen gran multiplicidad.
+
+Para un vértice excepcional \(x\), un emparejamiento interno del lado opuesto cubre un conjunto \(U\) de vértices. Exactamente \(\sum_{v\in U}\mu(x,v)\) copias cruzadas de \(x\) terminan en \(U\), donde \(\mu(x,v)\) denota la multiplicidad. Este conteo sugiere asignar un peso a cada vértice y preguntar cuánto peso cubre cada color. Con varios excepcionales, cada \(v\) lleva una coordenada por cada \(x\). Cambiar una clase de color cambia todas esas sumas a la vez.
+
+Partimos de una cota escalar de recoloreo para tamaños de clase prescritos. La Sección~\ref{sec:weights} da la prueba y un grafo conexo que alcanza la cota para tamaños iguales. El Teorema~\ref{thm:balance} también trata pesos vectoriales. Su cota depende de la dimensión del espacio generado por los pesos centrados, que puede ser mucho menor que el número de excepcionales. En la Sección~\ref{sec:cross} usamos cada coordenada para contar el peso que queda disponible para un vértice excepcional. Asignar a un par cruzado un peso menor que su multiplicidad resulta útil cuando varios excepcionales comparten un vecino. Las desigualdades resultantes dan tres condiciones suficientes para completar los colores uno a uno (Teorema~\ref{thm:factor}).
+
+Las mismas reservas ponderadas dan dos resultados de completación. Si dividimos los ordinarios en bloques, los dos lados pueden tener el mismo total de libres para un color y cantidades distintas en cada bloque. El Teorema~\ref{thm:block-deficit} identifica el déficit exacto a partir de las asignaciones elegibles de los excepcionales y muestra que cada color alcanza su déficit con copias cruzadas disjuntas. El Teorema~\ref{thm:hybrid-completion} trata la competencia por copias entre colores. Tras emparejar a los excepcionales, usa un conjunto de copias ordinarias para obtener emparejamientos parciales de toda la paleta y un segundo conjunto para repararlos. La rejilla de la Sección~\ref{sec:sparse-reserve-example} ilustra el criterio. Sus copias de relleno también dan una construcción directa con umbral explícito en un corte donde la prueba de rectángulos falla para toda paleta admisible.
+
+\subsection*{Relación con trabajos previos}
+
+Los coloreos equitativos de aristas equilibran el número de aristas por clase de color \cite{McDiarmid,CariolaroFu}. Para grafos bipartitos, en la Sección~\ref{sec:weights} deducimos una cota escalar para tamaños equitativos del lema de Nash-Williams sobre dos familias laminares~\cite{NashWilliams}. El Teorema~\ref{thm:balance} prescribe el tamaño de cada clase y admite ciclos impares. Balister, Kostochka, Li y Schelp usan caminos alternantes y un potencial cuadrático para equilibrar las cantidades de vértices con paletas prescritas \cite{BKLS}. Shioura y Yagiura equilibran conteos de aristas globalmente y en pares paralelos \cite{SY}. Gajjala y Khan~\cite{GK} imponen una capacidad en cada vértice y color. Aquí la carga es la suma de los pesos de los vértices de todo el emparejamiento.
+
+La construcción del corte parte de los argumentos de factorización de Shan y de Chen, McDonald y Shan \cite{Shan,CMS}. Nuestras hipótesis se refieren a un corte dado y permiten que varios excepcionales compartan vecinos de gran multiplicidad. La Sección~\ref{sec:two-fifths} compara los grados de una familia con los de resultados previos. En el ámbito espectral, Ferber y colaboradores obtienen un \(f\)-factor después de borrados acotados bajo una hipótesis sobre el grafo ambiente \cite[Lema~4.5]{FFMYZ}. La matriz del Teorema~\ref{thm:factor} mide el soporte simple entre ordinarios del corte prescrito. Las condiciones de corte por bloques usan el teorema de flujo entero de Gale~\cite{Gale} para determinar hasta dónde llega la completación ponderada de Hall después de que los colores anteriores han gastado copias.
+
+Para la completación simultánea usamos la estimación del \emph{nibble} de Keevash, derivada del trabajo de Ehard, Glock y Joos~\cite{KeevashII,EGJ}. Broder, Frieze y Upfal~\cite{BFU} combinan recorridos de mezcla rápida y el lema local de Lovász para conectar pares prescritos en un expansor. En el Lema~\ref{lem:spectral-repair}, el emparejamiento actual determina los pasos hacia atrás de cada color. Contamos el uso de cada copia de reserva a lo largo de toda la paleta y el de cada arista del emparejamiento anterior dentro de su color. Las aristas paralelas del multigrafo se tratan como copias distintas.
+
+\section{Recoloreo con tamaños de clase prescritos}\label{sec:weights}
+
+Todos los multigrafos son finitos y sin lazos. Contamos las aristas paralelas con multiplicidad y distinguimos sus copias. Para un coloreo propio de aristas \(M_1,\ldots,M_k\) y una función de pesos \(w\) sobre los vértices, escribimos
+\[
+  m_i=|M_i|,\qquad W_i=\sum_{uv\in M_i}\bigl(w(u)+w(v)\bigr).
+\]
+Como cada \(M_i\) es un emparejamiento, \(W_i\) suma los pesos de los vértices que cubre.
+
+\begin{theorem}\label{thm:balance}
+Supongamos que \(G\) admite un coloreo propio de aristas con tamaños de clase \(m_1,\ldots,m_k\). Sea \(w\) una función con valores en un espacio euclidiano real de dimensión finita. Fijemos \(c\) y \(R\ge0\) con \(\|w(v)-c\|_2\le R\) para todo \(v\), y pongamos \(s=\dim\spanof\{w(v)-c:v\in V(G)\}\). Existe un coloreo propio de aristas en el que el color \(i\) conserva su tamaño \(m_i\) para cada \(i\) y, para todo \(i,j\), se cumple
+\[
+  \|(W_i-2m_i c)-(W_j-2m_j c)\|_2
+  \le 2R\,\psi_s(|m_i-m_j|),
+\]
+donde
+\[
+ \psi_s(d)=
+ \begin{cases}
+   0 & s=0,\\
+   2 & s=1,\ d=0,\\
+   d & s=1,\ d>0,\\
+   \sqrt{d^2+4s} & s\ge2.
+ \end{cases}
+\]
+\end{theorem}
+
+\begin{proof}
+Escribimos \(z(v)=w(v)-c\) y \(Z_i=W_i-2m_i c\). Para \(s=0\) el resultado es inmediato. En el conjunto finito de coloreos con los tamaños dados, minimizamos \(\sum_i\|Z_i\|_2^2\). Fijamos dos colores distintos \(i,j\) con \(d=m_i-m_j\ge0\) y consideramos las componentes con aristas en el subgrafo de esos colores. Son caminos alternantes y ciclos pares, contando dos aristas paralelas como un ciclo de longitud dos. Ambos colores cubren cada vértice interno de un camino y cada vértice de un ciclo. Así, un ciclo aporta cero a \(Z_i-Z_j\), un camino par con extremos \(u,v\) aporta \(z(u)-z(v)\) con uno de los dos signos y un camino impar aporta \(z(u)+z(v)\) con uno de los dos signos. Podemos cambiar el signo intercambiando los colores en la componente. Un camino impar aporta el mismo signo a \(m_i-m_j\).
+
+Sea \(r\) el número de caminos impares, de modo que \(r\ge d\) y \(r\equiv d\pmod 2\). Elegimos \(d\) caminos impares con signo \(+1\) y agrupamos los restantes en parejas de signos opuestos. Con ello se conserva la diferencia de tamaños de las dos clases. Como su suma es fija, los dos colores conservan sus tamaños prescritos. La diferencia de cargas toma la forma
+\[
+  u_0+\sum_{\ell=1}^q \varepsilon_\ell v_\ell,\qquad
+  \|u_0\|_2\le 2Rd,\qquad \|v_\ell\|_2\le4R,
+\]
+donde cada signo independiente corresponde a un camino par o a una pareja de caminos impares. Para un camino par, \(\|v_\ell\|_2\le2R\).
+
+Si \(s=1\), identificamos el espacio generado con la recta real. Para \(d=0\) sirve cualquier agrupación de los caminos impares en parejas. Para \(d>0\) los agrupamos según si la suma en sus extremos es negativa o no negativa. Separamos un camino de cada grupo de tamaño impar. El número separado tiene la paridad de \(d\) y es a lo sumo \(d\), pues es a lo sumo dos y, si \(d=1\), tiene que ser uno. Ahora ambos grupos tienen tamaño par. Como \(r\ge d\), podemos separar parejas adicionales hasta tener \(d\) caminos con signo positivo. Todas las parejas restantes se forman dentro de sus grupos. En cada pareja, las sumas difieren en a lo sumo \(2R\), pues las de un grupo pertenecen a un intervalo de longitud \(2R\). Para \(d=0\), la agrupación sin restricciones da la cota \(4R\). Partiendo de \(u_0\), elegimos sucesivamente signos opuestos a la suma actual. El valor absoluto final es a lo sumo \(\max(|u_0|,\max_\ell |v_\ell|)\), tomando el último máximo como cero si no hay signos por elegir. Obtenemos \(4R\) para \(d=0\) y \(2Rd\) para \(d>0\).
+
+Para clases del mismo tamaño, la elección restante de signos es el problema clásico de balance euclidiano estudiado por Spencer~\cite{Spencer}. Cuando los tamaños difieren también hay que admitir el desplazamiento fijo \(u_0\). La reducción y el redondeo que siguen usan el método de Ambrus y Bozzai~\cite[Sección~2 y Proposición~3.1]{AB}. Aquí los vectores a los que asignamos un signo provienen de intercambios que conservan ambos tamaños. La minimización de la energía hace que la cota valga para todos los pares en un mismo coloreo.
+
+Para \(s\ge2\) partimos de los coeficientes \(x_\ell=0\) en el cubo \([-1,1]^q\), con \(\sum_\ell x_\ell v_\ell=0\). Si hay más de \(s\) coordenadas interiores, una dependencia no nula entre los \(v_\ell\) correspondientes da una dirección que conserva la ecuación. Elegir la dirección en las coordenadas interiores deja fijos los coeficientes de la frontera. Al avanzar al primer punto nuevo de la frontera se conserva la suma vectorial y se fija al menos un coeficiente más. Cada paso reduce el número de coordenadas interiores, hasta que quedan a lo sumo \(s\).
+
+Redondeamos uno a uno los coeficientes restantes. Para una suma parcial \(u\) y un aporte \(xv\), la combinación convexa de \(\|u+v\|_2^2\) y \(\|u-v\|_2^2\) con coeficientes \((1+x)/2,(1-x)/2\) es \(\|u+xv\|_2^2+(1-x^2)\|v\|_2^2\). Al menos un signo da una norma al cuadrado menor o igual a ese promedio. El aumento acumulado de la norma al cuadrado es a lo sumo la suma de esos costos. Como la suma inicial es \(u_0\), la norma al cuadrado resultante es a lo sumo
+\[
+  \|u_0\|_2^2+\sum_\ell(1-x_\ell^2)\|v_\ell\|_2^2
+  \le 4R^2(d^2+4s).
+\]
+
+La suma \(Z_i+Z_j\) y las cargas de todos los demás colores quedan fijas bajo estos cambios. La identidad
+\[
+  2\bigl(\|Z_i\|_2^2+\|Z_j\|_2^2\bigr)
+    =\|Z_i+Z_j\|_2^2+\|Z_i-Z_j\|_2^2
+\]
+daría una mejora estricta del mínimo si la diferencia original excediera la cota. El coloreo que minimiza satisface, por tanto, todas las cotas.
+\end{proof}
+
+\begin{corollary}[Cotas escalares agudas]\label{cor:scalar}
+Si \(w:V(G)\to[L,U]\), se pueden conservar los tamaños prescritos y conseguir, simultáneamente para todo \(i,j\),
+\[
+\begin{aligned}
+ |W_i-W_j|&\le2(U-L) &&\text{si }m_i=m_j,\\
+ 2L(m_i-m_j)&\le W_i-W_j\le2U(m_i-m_j)
+       &&\text{si }m_i>m_j.
+\end{aligned}
+\]
+\end{corollary}
+
+\begin{proof}
+Con \(c=(L+U)/2\) y \(R=(U-L)/2\), el Teorema~\ref{thm:balance} acota la diferencia centrada. Al sumar \(2(m_i-m_j)c\) se obtienen los extremos indicados.
+\end{proof}
+
+Consideremos ahora un grafo bipartito y tamaños equitativos. En cada lado ordenamos los vértices por peso. Las estrellas y las uniones de estrellas de segmentos iniciales forman una familia laminar de conjuntos de aristas que incluye el conjunto completo. El lema de Nash-Williams \cite{NashWilliams} separa un color a la vez con el piso o el techo del tamaño proporcional de cada conjunto. Los conteos finales difieren en a lo sumo uno en cada conjunto. Las restricciones en las estrellas dan un coloreo propio cuando el número de colores es al menos el grado máximo. Para dos clases de igual tamaño, la sumación por partes acota entonces su diferencia de cargas por la suma de los dos rangos de pesos, uno de cada lado.
+
+La constante \(2\) para tamaños iguales se alcanza en un grafo simple conexo. El ejemplo es un triángulo \(abc\) con tres aristas adicionales \(ad,de,bf\), con peso \(U\) en \(c,f\) y \(L\) en los otros cuatro vértices. En cualquier coloreo propio en tres clases de tamaño dos, podemos renombrar los colores para que \(ab,ac,bc\) tengan colores \(1,2,3\). Las aristas \(ad,bf\) deben tener colores \(3,2\), y los tamaños fuerzan el color \(1\) para \(de\). Las cargas resultantes son \(4L,2L+2U,3L+U\).
+
+La dependencia euclidiana en \(s\) es de orden óptimo. Para \(s\) par, damos a ambos extremos de la \(j\)-ésima arista de un emparejamiento el peso \(Re_j\), con \(1\le j\le s\), donde \(e_j\) son los vectores coordenados y \(R>0\). En cada partición en dos clases de igual tamaño, la discrepancia tiene norma \(2R\sqrt{s}\).
+
+\section{Del recoloreo a los emparejamientos cruzados}\label{sec:cross}
+
+Sea \(M\) un multigrafo \(D\)-regular con una partición \(A,B\), donde \(|A|=|B|=m\). Sean \(X\subseteq A\) e \(Y\subseteq B\) los vértices excepcionales y pongamos \(A_0=A\setminus X\) y \(B_0=B\setminus Y\). Para \(u,v\in V(M)\), sea \(\mu(u,v)\) el número de copias de \(uv\). El soporte del grafo cruzado es su grafo simple de vecinos cruzados distintos.
+
+Supongamos \(1\le k<D\) y que \(M[A],M[B]\) admiten cada uno un coloreo propio de aristas con \(k\) colores. Si en alguno de ellos los tamaños de dos clases difieren en al menos dos, existe un camino alternante impar con una arista más de la clase mayor. Intercambiar sus colores reduce la suma de los cuadrados de los tamaños de las clases. Repitiendo se obtienen coloreos equitativos en ambos lados \cite{McDiarmid,CariolaroFu}. Si \(e_A,e_B\) cuentan las aristas internas y \(e_\times\) las copias cruzadas, la regularidad da
+\[
+ 2e_A+e_\times=Dm=2e_B+e_\times.
+\]
+Así, las clases equitativas tienen el mismo multiconjunto de tamaños en cada lado y podemos emparejar clases de igual tamaño. Escribimos \(a_i\) para esos tamaños comunes y ponemos
+\[
+ a=\max_i a_i=\left\lceil e(M[A])/k\right\rceil,\qquad
+ d_*=\max_{i,j}|a_i-a_j|\in\{0,1\}.
+\]
+Sean \(\sigma_A,\sigma_B\) cotas superiores de los grados internos de los ordinarios en sus partes respectivas. Sean \(\delta_A,\delta_B\) cotas inferiores del número de vecinos cruzados distintos en la parte ordinaria opuesta para los vértices ordinarios de cada lado.
+
+Para \(x\in X\), elegimos un costo no negativo \(\eta_x\) por copia gastada. Elegimos pesos por par \(w_{xv}\) que satisfacen
+\[
+ 0\le w_{xv}\le \eta_x\mu(x,v)\quad (v\in B_0),\qquad
+ \sum_{x\in X}w_{xv}\le C_X\quad(v\in B_0),
+\]
+donde \(C_X>0\). Extendemos cada fila por cero en los vértices de \(Y\) y ponemos \(T_x=\sum_{v\in B_0}w_{xv}\). Denotamos la columna de pesos en \(v\in B\) por \(w_X(v)\). La cota de discrepancia depende de si la representación es escalar o vectorial.
+\begin{itemize}
+\item Si \(w_{xv}=t_v u_x\) en toda la parte \(B\), con \(0\le t_v\le R\) y \(u_x\ge0\), ponemos \(H_x=2R u_x\).
+\item Si \(w_{xv}=c_x+\langle u_x,z_v\rangle\) en los vértices no aislados de \(M[B]\), con \(z_v\in\mathbb R^s\), \(\|z_v\|_2\le R\) y \(\|u_x\|_2\le1\), se puede usar
+\[
+ H_x=2R\|u_x\|_2\sqrt{d_*^2+4s}+2|c_x|d_* .
+\]
+\end{itemize}
+En el caso vectorial podemos usar coordenadas ortonormales en el espacio generado por los perfiles centrados. En un vértice aislado del grafo interno, \(z_v\) no afecta a ninguna carga interna. Los datos de \(Y\) se definen simétricamente. El caso \(w_{xv}=\eta_x\mu(x,v)\) corresponde al reescalamiento fijo usual de cada fila.
+
+Para una fila de la izquierda ponemos
+\[
+ I_x=\sum_{v\in B_0}\deg_{M[B]}(v)w_{xv},
+\]
+y definimos \(I_y\) con los grados internos de la izquierda. En particular, \(I_x\le\sigma_B T_x\).
+
+\begin{lemma}[Peso cruzado disponible]\label{lem:available}
+Hay un coloreo propio de todas las aristas internas, con tamaños \(a_i\) en ambos lados, que satisface lo siguiente para cada color \(i\). Al descartar los vértices que cubren sus aristas internas y tras gastar a lo sumo \(p\) copias cruzadas por vértice, cada \(x\in X\) que queda libre tiene al menos
+\[
+ T_x-I_x/k-\frac{k-1}{k}H_x-p\eta_x
+\]
+de peso residual del certificado en aristas hacia los vértices libres de \(B_0\). Para \(y\in Y\) vale la cota simétrica.
+\end{lemma}
+
+\begin{proof}
+En el caso escalar aplicamos el Corolario~\ref{cor:scalar} a \(t_v\). Los tamaños equitativos dan una diferencia escalar de magnitud a lo sumo \(2R\). Al multiplicar por \(u_x\) queda la cota de todas las filas en un solo coloreo. En el caso vectorial aplicamos el Teorema~\ref{thm:balance} a \(z_v\) con la cota que usa \(\sqrt{d_*^2+4s}\), que también domina el caso escalar. La carga de \(x\) es la proyección de la carga de \(z_v\) más \(2c_x a_i\). Cauchy--Schwarz acota la proyección y la diferencia de los términos afines tiene magnitud a lo sumo \(2|c_x|d_*\). En ambos casos el color \(i\) conserva exactamente \(a_i\) aristas.
+
+Sea \(W_{x,i}\) la carga del color \(i\) en la fila \(x\). Cada vértice ordinario \(v\) está cubierto por exactamente \(\deg_{M[B]}(v)\) colores. Por tanto,
+\[
+ \frac1k\sum_j W_{x,j}=I_x/k,\qquad
+ W_{x,i}-\frac1k\sum_jW_{x,j}
+       =\frac1k\sum_{j\ne i}(W_{x,i}-W_{x,j})
+       \le\frac{k-1}{k}H_x.
+\]
+Los vértices cubiertos internamente aportan peso \(W_{x,i}\). Si se gastaron \(s_{xv}\) copias de un par cruzado, usamos el certificado residual \(w'_{xv}=(w_{xv}-\eta_x s_{xv})_+\). Es cero cuando se gastaron todas las copias. Para el conjunto \(U\) de ordinarios libres obtenemos
+\[
+ \sum_{v\in U} w'_{xv}
+ \ge \sum_{v\in U} w_{xv}-\eta_x\sum_{v\in U}s_{xv}
+ \ge T_x-W_{x,i}-p\eta_x.
+\]
+Al sustituir la cota anterior de \(W_{x,i}\) se obtiene el resultado. Las estimaciones del otro lado siguen al aplicar el mismo argumento a \(w_Y\) en \(M[A]\). Cada clase \(i\) conserva el tamaño \(a_i\) en ambas partes.
+\end{proof}
+
+\begin{theorem}[Factorización a través de un corte]\label{thm:factor}
+Con la notación anterior, supongamos que las filas excepcionales satisfacen
+\begin{align}
+  T_x-I_x/k&\ge C_X+\frac{k-1}{k}H_x+(k-1)\eta_x
+      &&(x\in X),\label{eq:rowx}\\
+  T_y-I_y/k&\ge C_Y+\frac{k-1}{k}H_y+(k-1)\eta_y
+      &&(y\in Y).\label{eq:rowy}
+\end{align}
+Supongamos también que se cumple alguna de las condiciones siguientes.
+\begin{enumerate}
+\item Los grados cruzados ordinarios satisfacen
+\[
+  \delta_A+\delta_B\ge m+2a+2(k-1).
+  \tag{D}\label{eq:dense}
+\]
+\item Pongamos \(\ell=2a+\max(|X|,|Y|)\). Existen enteros positivos \(\rho,\tau\) tales que
+\[
+ \rho\ge\ell,\qquad \rho\ge k,\qquad
+ \min(\delta_A,\delta_B)\ge\tau+\ell+k-1,
+ \tag{R}\label{eq:robust}
+\]
+y para cada \(S\subseteq A_0\) con \(\tau\le |S|\le |A_0|-\tau\), hay al menos \(|S|+\rho\) vértices de \(B_0\) con al menos \(\rho\) vecinos de \(S\) en el soporte cruzado.
+\item Los conjuntos excepcionales tienen el mismo tamaño \(r\). En los \(N=m-r\) vértices ordinarios por lado, el soporte simple cruzado es \(d\)-regular, con \(1\le d\le N\). Sea \(\lambda\) la norma de operador de su matriz de biadyacencia sobre los vectores ortogonales a las constantes, o equivalentemente su segundo valor singular (cero en el subespacio de dimensión cero). Supongamos
+\[
+ \lambda\le 3d/4,\qquad 2a+r+k-1\le d/8 .
+ \tag{S}\label{eq:spectral}
+\]
+\end{enumerate}
+Entonces \(M\) tiene una 1-factorización. Más generalmente, basta que para cada par de conjuntos no vacíos \(S\subseteq A_0\), \(T\subseteq B_0\) con
+\[
+ |S|+|T|>m-2a-|X|-|Y|
+\]
+haya un vértice en \(S\cup T\) incidente con al menos \(k\) copias cruzadas entre \(S\) y \(T\).
+\end{theorem}
+
+\begin{proof}
+Partimos del coloreo interno del Lema~\ref{lem:available} y completamos sus clases en cualquier orden. Al llegar al color \(i\), sea \(p\le k-1\) el número de clases ya completadas. Conservamos las aristas cruzadas disponibles en los \(m_i'=m-2a_i\) vértices no cubiertos de cada lado. Las completaciones anteriores gastaron a lo sumo \(p\) copias en cada vértice.
+
+Cada \(x\in X\) que sigue libre tiene grado ponderado al menos \(C_X\) hacia los ordinarios libres. En cada columna, el peso total de esos \(x\) es a lo sumo \(C_X\). Para cualquier subconjunto \(Q\) de tales excepcionales, contamos el peso disponible entre \(Q\) y su vecindad ordinaria \(N_0(Q)\) y obtenemos
+\[
+   C_X|Q|\le \sum_{x\in Q}\sum_{v\in N_0(Q)}
+             w'_{xv}\le C_X|N_0(Q)|.
+\]
+Todo peso residual positivo tiene una copia disponible. Se cumple, pues, la condición de Hall hacia los ordinarios. El mismo argumento vale para los excepcionales libres de \(Y\).
+
+Supongamos que un conjunto \(Q\) de vértices libres de la izquierda tiene menos vecinos que elementos. Sea \(P\) el conjunto de vértices libres de la derecha fuera de la vecindad residual de ese conjunto. Entonces \(|Q|+|P|>m_i'\) y todos los vecinos de \(P\) están fuera de \(Q\). Hall para los excepcionales en ambos lados asegura que \(S=Q\cap A_0\) y \(T=P\cap B_0\) son no vacíos. Sus tamaños satisfacen \(|S|+|T|>m-2a-|X|-|Y|\).
+
+Todas las copias cruzadas originales entre \(S\) y \(T\) se gastaron, pues sus extremos siguen libres y ninguna arista residual los une. Esto prueba la afirmación general. Un vértice con \(k\) copias entre ambos conjuntos habría gastado más de las \(p\le k-1\) permitidas. Basta también encontrar un vértice con \(k\) vecinos distintos en el conjunto opuesto. Para ello basta que haya más de \((k-1)\min(|S|,|T|)\) aristas del soporte, promediando sobre el lado menor.
+
+Escribimos \(s=|S|\), \(t=|T|\). Bajo~\eqref{eq:dense}, si cada vértice tiene a lo sumo \(k-1\) vecinos en el conjunto opuesto, entonces
+\[
+ \delta_A+\delta_B\le |B_0|-t+|A_0|-s+2(k-1)<m+2a+2(k-1).
+\]
+Esto contradice la condición de grados.
+
+Para la vecindad robusta bipartita de K\"uhn, Lo, Osthus y Staden~\cite{KLOS}, aplicamos~\eqref{eq:robust} como sigue. Si \(s\le\tau\), entonces \(|B_0|-t<s+2a+|X|\). Cada vértice de \(S\) tiene por tanto al menos \(k\) vecinos en \(T\), por la cota de grados. Si \(s>|A_0|-\tau\), la cota da al menos \(k\) vecinos en \(S\) para cada vértice de \(T\). En el intervalo restante, la vecindad robusta de \(S\) contiene al menos \(s+\rho\) vértices. La desigualdad \(|B_0|-t<s+2a+|X|\le s+\rho\) deja algún vecino robusto en \(T\), con al menos \(\rho\ge k\) vecinos en \(S\).
+
+Para~\eqref{eq:spectral}, supongamos que el soporte original tiene a lo sumo \(k-1\) vecinos en el conjunto opuesto para cada vértice del par. Ponemos \(b=k-1\) y \(h=2a+r\). La regularidad del soporte da \(d\le N-t+b\) y \(d\le N-s+b\). Como \(s+t>N-h\), obtenemos
+\[
+ \min(s,t)>d-h-b\ge 7d/8,\qquad
+ \max(s,t)>\frac{(7+u)N}{16},\qquad u=8b/d.
+\]
+La segunda desigualdad usa \(h\le (1-u)d/8\) y \(d\le N\).
+
+Sea \(e\) el número de aristas del soporte entre \(S\) y \(T\). La hipótesis de grados da \(e\le b\min(s,t)\). Para la cota inferior, centramos los indicadores de \(S\) y \(T\) restando \(s/N\) y \(t/N\), respectivamente. La regularidad cancela los términos mixtos con un vector constante. La cota de mezcla~\cite{Haemers} da
+\[
+ e\;\ge\;\frac{dst}{N}
+ \left(1-\frac{\lambda}{d}\sqrt{\frac{(N-s)(N-t)}{st}}\right).
+\]
+El cociente dentro de la raíz satisface
+\[
+ \frac{(N-s)(N-t)}{st}
+ =1+\frac{N(N-s-t)}{st}
+ \le \frac{65-9u}{7(7+u)} .
+\]
+Aquí usamos \(N-s-t<h\) y las cotas para el conjunto menor y el mayor. La cota superior normalizada de \(e\) es \(bN/(d\max(s,t))\le 2u/(7+u)\), estricta si \(u>0\). La cota inferior normalizada es al menos
+\[
+ 1-\frac34\sqrt{\frac{65-9u}{7(7+u)}}\ge \frac{2u}{7+u}.
+\]
+Para ver la última desigualdad elevamos al cuadrado la desigualdad equivalente entre cantidades no negativas. Tras eliminar denominadores, la diferencia es
+\[
+ 112(7-u)^2-9(7+u)(65-9u)=(1-u)(1393-193u).
+\]
+Es no negativa para \(0\le u\le1\) y positiva en \(u=0\). Esto contradice la cota superior de \(e\).
+
+En cada caso, las aristas internas y el emparejamiento cruzado del color \(i\) forman un 1-factor. Como solo usamos copias disponibles, podemos repetir el argumento para todos los colores internos. El multigrafo residual es \((D-k)\)-regular y bipartito. Un conteo de grados da la condición de Hall en cada multigrafo bipartito regular de grado positivo, de modo que se factoriza el residuo retirando emparejamientos perfectos sucesivos.
+\end{proof}
+
+Las restricciones de filas y columnas están relacionadas con el problema de transporte con capacidades. El teorema de factibilidad de Gale da certificados de corte para ese problema \cite{Gale}. El recoloreo hace que cada color deje disponibles los totales requeridos de las filas.
+
+\section{Ejemplos}\label{sec:examples}
+
+En cada ejemplo, el grafo interno de los ordinarios es una unión disjunta de copias de \(K_{2,2}\), una por cada grupo de cuatro vértices ordinarios. Los excepcionales están aislados en los grafos internos. El grado interno de un ordinario es dos. Por tanto, se puede usar cualquier paleta con al menos dos colores, con \(N\) aristas internas por lado cuando hay \(N\) ordinarios por lado.
+
+\subsection{Un vecino compartido de alta multiplicidad}
+
+Cada lado tiene \(N=4r\) ordinarios, con \(r\ge6\), y dos excepcionales. Cada excepcional envía \(N\) copias a un ordinario distinguido común del lado opuesto y una copia a cada uno de otros \(N/2\) vecinos compartidos. Las partes ordinarias tienen soporte bipartito completo. A cada par de ordinarios correspondientes le añadimos \(2N\) copias menos la incidencia que recibe de los excepcionales. Entre excepcionales correspondientes colocamos \(D-3N/2\) copias, donde \(D=3N+2\). Todos los vértices tienen así grado \(D\).
+
+Aquí \(k=4\) y \(a=N/4\). Se cumple la condición de grados~\eqref{eq:dense}. Para \(w_{xv}=\min(1,\mu(x,v))\), las filas son idénticas y \(T_x=N/2+1\), \(C_X=2\), \(H_x=2\), \(\eta_x=1\). El peso disponible en la desigualdad de la fila es \((N/2+1)(1-2/4)\). El peso requerido es \(2+(3/4)2+3=13/2\), así que basta \(N\ge24\). El otro lado tiene los mismos pesos y grados.
+
+En el mismo corte falla todo reescalamiento fijo de las multiplicidades originales por fila. En efecto, al escribir \(D_x=\sum_{v\in B_0}\mu(x,v)\), las desigualdades necesarias \(\eta_xD_x\ge C_X>0\) y \(\sum_x\eta_x\mu(x,v)\le C_X\) implican \(\sum_x\mu(x,v)/D_x\le1\). En la columna distinguida el valor es \(2N/(3N/2)=4/3\).
+
+\subsection{Una base común en una familia creciente}
+
+Cada lado tiene \(r\ge6\) excepcionales y \(N=4r\) ordinarios en grupos de cuatro. Los cuatro ordinarios del grupo \(j\) tienen \(q+\mathbf1_{x=j}\) copias hacia el excepcional opuesto \(x\), para un entero \(q\ge2\). Cada excepcional tiene grado \(D=Nq+4\). El multigrafo cruzado ordinario tiene soporte simple completo y multiplicidad adicional uniforme en pares correspondientes para llevar su grado a \(3rq+1\). El grafo es \(D\)-regular, pues los grados restantes en un ordinario son \(rq+1\) y \(2\).
+
+Para \(k=4\) y \(a=N/4\), los dos grados ordinarios suman \(2N\) y el lado derecho de~\eqref{eq:dense} es \(N+r+N/2+6\le2N\). Con costos unitarios y las multiplicidades como pesos, \(T_x=Nq+4\), \(C_X=rq+1\). Tomamos \(z_v=e_j\) en un ordinario del grupo \(j\), \(u_x=e_x\) y \(c_x=q\). Los tamaños equitativos son iguales, de modo que el término de desplazamiento se anula. Basta \(H_x=2r\), pues \(4\sqrt r\le2r\). Al restar el peso requerido del disponible se obtiene
+\[
+ \tfrac12(4rq+4)-(rq+1)-\tfrac34(2r)-3
+ =rq-\tfrac32r-2\ge \tfrac12r-2>0 .
+\]
+
+Las columnas sin centrar tienen rango completo \(r\). Si \(\alpha_j\) son coeficientes de una dependencia, las ecuaciones son \(\alpha_x+q\sum_j\alpha_j=0\) para cada \(x\). Al sumar resulta \(\sum_j\alpha_j=0\), y por ello todos los coeficientes son cero. Un reescalamiento positivo fijo de las filas conserva el rango. Si \(\eta_{\min}\) es la escala menor, el radio reescalado es al menos \(q\sqrt r\,\eta_{\min}\). Usando la norma euclidiana de las columnas reescaladas de incidencia, la estimación sin centrar descontaría al menos \(3qr\,\eta_{\min}\) solo por discrepancia en esa fila, más que su presupuesto disponible \((Nq+4)\eta_{\min}/2\) antes de los descuentos.
+
+Lo anterior se refiere a la estimación euclidiana sobre las columnas de multiplicidades. El mismo grafo admite además un certificado escalar sin centrar al cambiar los pesos. Cada par excepcional--ordinario tiene multiplicidad positiva, de modo que su indicador vale uno. Con \(T_x=4r\), \(C_X=r\), \(\eta_x=1\) y \(H_x=2\), la desigualdad de la fila es \(2r\ge r+9/2\), que vale para \(r\ge6\).
+
+También podemos centrar las columnas de multiplicidades en \((q+1/r)\mathbf1\). Los vectores centrados \(e_j-\mathbf1/r\) generan el espacio de suma cero de dimensión \(r-1\), con radio \(\sqrt{1-1/r}\). Al proyectar cada coordenada sobre ese espacio se obtiene la misma norma \(\sqrt{1-1/r}\) para la fila correspondiente. Con tamaños iguales, la cota de la fila pasa a ser \(4(r-1)^{3/2}/r\).
+
+\subsection{Completación robusta a dos quintos de la parte ordinaria}\label{sec:two-fifths}
+
+Sea \(b\) un múltiplo positivo de \(400\), sea \(g=b-2\) y pongamos \(r=5g\), \(N=rb\). En cada lado hay \(r\) excepcionales y \(N\) ordinarios. Los ordinarios forman \(r\) grupos de tamaño \(b\). Cada ordinario del grupo \(j\) envía \(g+1\) copias a cada uno de los excepcionales opuestos \(j,j+1\), con índices cíclicos. Una segunda partición en cada lado ordinario da cinco bloques iguales de tamaño \(B=N/5\). A través del corte unimos los bloques con \(i+j\in\{0,1\}\) módulo cinco mediante un soporte bipartito simple completo. El grafo de bloques es un ciclo bipartito de longitud diez. No hay aristas entre excepcionales. Cada excepcional tiene grado \(D=2b(g+1)\). El grado ordinario es \(2+2(g+1)+2B=D\).
+
+Con \(k=100\) colores tenemos \(a=N/100\). Los pesos de incidencia indican multiplicidad excepcional positiva y los costos son uno. El peso por columna es \(2\), cada fila tiene total \(2b\) y los vectores columna tienen norma a lo sumo \(2\). Para tamaños iguales y \(s=r\), basta \(H_x=b\) porque \(b^2\ge64r\). La desigualdad de fila se cumple pues \(98(2b)/100\ge 2+99+99b/100\).
+
+Tomamos \(\rho=N/40\), \(\tau=5\rho\). Para un conjunto \(S\) con \(\tau\le|S|\le N-\tau\), sea \(J\) el conjunto de índices de bloques que contienen al menos \(\rho\) vértices de \(S\). Al menos un bloque pertenece a \(J\). Si \(J\) contiene todos los bloques, los \(N\) vértices de la derecha son vecinos robustos y \(N\ge |S|+\tau\ge |S|+\rho\). Si \(1\le |J|<5\), el grafo de bloques da al menos \(|J|+1\) bloques derechos de vecinos robustos. A la vez, \(|S|\le |J|B+5\rho\). La diferencia es al menos \(\rho\) porque \(6\rho\le B\). Para comprobar la cota de grados, observamos que \(r=N/b\) y \(b\ge400\), así que
+\[
+ (2a+r)/\rho=40(2/100+1/b)\le 9/10.
+\]
+Además \(\rho=rb/40\ge100=k\). Luego \(\tau+2a+r+k-1\le7\rho\le 2B\), como se requería. El grado cruzado ordinario es \(2N/5\), de modo que la condición densa falla en este corte.
+
+La familia también ilustra el papel de los conjuntos excepcionales en resultados previos de factorización. Al borrar un vértice quedan varios pares de multiplicidad mayor que uno, fuera de las hipótesis de casi estrella de Shan \cite[Teorema~3.1]{Shan}. El grado y la multiplicidad máxima incumplen la cota \(D\ge\mu_{\max}(n/2+18)\) de Plantholt y Shan \cite[Teorema~1.6]{PlantholtShan}. En el régimen de parámetros pequeños de Chen, McDonald y Shan \cite[Teorema~4.2]{CMS}, la cota de grado simple para el tercero y siguientes vértices del orden excepcional es lineal en \(D\). Aquí cada uno de los \(r=5(b-2)\) excepcionales de un lado tiene solo \(2b\) vecinos distintos y \(D=2b(b-1)\).
+
+\subsection{Un grafo cruzado ordinario disperso}\label{sec:grid}
+
+Sea \(q\ge46\) un entero. Cada lado tiene una rejilla de \(q\) por \(q\), con 256 ordinarios en cada celda y un excepcional por fila. Así, \(N=256q^2\) y \(r=q\). Dos celdas opuestas se unen por completo cuando comparten fila o columna, incluida la celda correspondiente. El grado cruzado simple ordinario es
+\[
+ d=256(2q-1)=32\sqrt N-256 .
+\]
+Cada ordinario envía \(q\) copias al excepcional opuesto de su fila. Dentro de cada celda hay 64 copias disjuntas de \(K_{2,2}\). Los excepcionales están aislados internamente. Un excepcional tiene ahora grado \(256q\cdot q=N\) y un ordinario tiene grado \(d+q+2\). Añadimos \(N-d-q-2\ge0\) copias paralelas a cada par de ordinarios correspondientes. Así el multigrafo es \(N\)-regular y conserva su soporte cruzado.
+
+Para calcular los valores singulares, sea \(J_n\) la matriz de unos e \(I_n\) la identidad. La matriz sobre los índices de las celdas es
+\[
+ I_q\otimes J_q+J_q\otimes I_q-I_q\otimes I_q .
+\]
+Tiene valor propio \(2q-1\) sobre las constantes, \(q-1\) sobre funciones de una sola coordenada con media cero y \(-1\) sobre el producto tensorial de los dos espacios de media cero. Estos subespacios generan las funciones sobre las celdas. Al reemplazar cada entrada por ella misma multiplicada por \(J_{256}\), los valores propios se multiplican por 256 y aparecen ceros. La matriz es simétrica, por lo que \(\lambda=256(q-1)\le d/2\).
+
+Hay \(N\) aristas internas por lado. Con \(k=16q\) resulta \(a=N/k=16q\) y \(d_*=0\). Los pesos ordinarios de la fila \(x\) son los indicadores de su incidencia, con costo uno. Cada columna tiene un solo uno, cada fila suma \(256q\) y \(\sigma_A=\sigma_B=2\). Los perfiles son vectores coordenados, por lo que \(R=1\), \(s=q\) y \(H_x=4\sqrt q\). Los pesos disponible y requerido de la desigualdad satisfacen
+\[
+ T_x(1-2/k)=256q-32,\qquad
+ 1+(k-1)H_x/k+(k-1)\le16q+4\sqrt q\le256q-32 .
+\]
+También \(2a+r+k-1=49q-1\le64q-32=d/8\). El Teorema~\ref{thm:factor} da una 1-factorización. La densidad cruzada ordinaria \(d/N=(2q-1)/q^2\) tiende a cero.
+
+Fijamos este corte y sus conjuntos excepcionales, y permitimos cualquier paleta admisible \(k\). La condición~\eqref{eq:dense} falla porque \(2d<N+q=m\). Para~\eqref{eq:robust}, supongamos que sirven los umbrales \(\rho,\tau\). Como \(ak\ge N\),
+\[
+ \rho\ge\max(2a,k)\ge\sqrt{2ak}\ge\sqrt{2N}>1024 .
+\]
+La condición de grados da \(\tau\le d\), y como \(2d\le N\), un conjunto de tamaño exactamente \(\tau\) pertenece al intervalo en que se comprueba la expansión. Numeramos las filas y columnas módulo \(q\). Las diagonales \(j=i\) y \(j=i+1\) contienen \(512q>d\) vértices en total. Elegimos \(\tau\) de ellos en la izquierda. Cada celda opuesta se encuentra con a lo sumo dos de esas celdas en su fila y dos en su columna. Cada ordinario de la derecha ve entonces a lo sumo \(4\cdot256=1024\) vértices elegidos. La vecindad robusta es vacía, contra el tamaño requerido \(\tau+\rho\). Esto prueba la separación para toda paleta en el corte dado.
+
+\subsection{Una rejilla rectangular}
+
+La versión rectangular tiene \(2q\) filas y \(q\) columnas, con \(q\ge49\). Conserva los 256 ordinarios por celda y un excepcional por fila. El soporte ordinario cruzado tiene grado \(d=256(3q-1)\) sobre \(N=512q^2\) vértices por lado. Las funciones de fila y columna de media cero tienen ahora valores propios \(256(q-1)\) y \(256(2q-1)\), respectivamente. Las constantes y el producto tensorial dan \(d\) y \(-256\). Las funciones de suma cero en cada celda dan cero. Así, la razón \((2q-1)/(3q-1)\) está entre \(1/2\) y \(3/4\).
+
+Ponemos \(2q\) copias entre cada ordinario y el excepcional opuesto de su fila. Conservamos los grafos internos y añadimos copias entre ordinarios correspondientes para que todo grado sea \(N\). Para \(k=32q\) y \(a=16q\), las filas indicadoras tienen peso disponible \(256q-16\) antes de descontar discrepancia y gasto. El peso requerido es a lo sumo \(32q+4\sqrt{2q}\) y el presupuesto espectral es \(66q-1\le d/8\). Esto da una 1-factorización.
+
+El corte fijado incumple~\eqref{eq:dense}, pues \(2d<N+2q\). Para probar~\eqref{eq:robust}, usamos las columnas \(i\) e \(i+1\) módulo \(q\) en la fila \(i\). Hay \(1024q\ge d\) ordinarios en estas celdas, por lo que contienen un conjunto de tamaño \(\tau\) dentro del intervalo de expansión. Como muestra la Figura~\ref{fig:rectangle}, un vértice opuesto ve a lo sumo dos celdas elegidas en su fila y cuatro en su columna. Su grado hacia el conjunto es a lo sumo 1536, mientras que \(\rho\ge\sqrt{2N}=32q>1536\) para toda paleta admisible. La densidad del soporte es \((3q-1)/(2q^2)\). Los multigrafos conservan grado \(N\).
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[x=.46cm,y=.35cm]
+\foreach \i in {0,...,7} {
+  \foreach \j in {0,...,3} {
+    \pgfmathtruncatemacro{\firstcol}{mod(\i,4)}
+    \pgfmathtruncatemacro{\nextcol}{mod(\i+1,4)}
+    \ifnum\j=\firstcol \fill[blue!26] (\j,-\i) rectangle +(1,-1); \fi
+    \ifnum\j=\nextcol \fill[blue!26] (\j,-\i) rectangle +(1,-1); \fi
+    \draw[gray] (\j,-\i) rectangle +(1,-1);
+  }
+}
+\draw[very thick,blue!70!black] (0,-4) -- (4,-4);
+\end{tikzpicture}
+\caption{Las dos columnas elegidas en cada fila del rectángulo, ilustrado con cuatro columnas. Cada fila contiene dos celdas elegidas y cada columna cuatro. La línea gruesa separa las dos copias del patrón cíclico.}\label{fig:rectangle}
+\end{figure}
+
+\input{blocks-es.tex}
+\input{spectral-reserve-es.tex}
+
+\section{Formalización}
+
+El companion de formalización~\cite{WECRCompanion} identifica las pruebas en Lean de los diez resultados numerados. Se verifican en un solo proyecto bajo Lean 4.35.0-rc3. El enunciado formal del Teorema~\ref{thm:hybrid-completion} incluye un renombramiento inyectivo de los colores iniciales y demuestra que preserva el color de cada copia de arista interna. El desarrollo de la rejilla verifica los dos argumentos de la Sección~\ref{sec:sparse-reserve-example}. Las pruebas de recoloreo y de corte reutilizan Overfull Criteria, un desarrollo del autor~\cite{TraversoOverfull}. El companion indica las dependencias fijadas, los registros de verificación y el cálculo independiente con Certo para la Figura~\ref{fig:rectangle}.
+
+\section*{Agradecimientos}
+
+El autor está profundamente agradecido a su esposa María Paz y a sus hijos Lucas, Juan Cristóbal, Francisca, Raimundo y Benjamín por su amor, paciencia y apoyo.
+
+\section*{Uso de inteligencia artificial y herramientas computacionales}
+
+Se usó ChatGPT/Codex, de OpenAI, para explorar y verificar argumentos y preparar el manuscrito. Lean 4 y Mathlib se usaron para las pruebas identificadas en el companion. La prueba de coloreo bipartito de aristas usada para factorizar el residuo proviene de la formalización del artículo V del autor sobre Erdős~81~\cite{TraversoV}, que atribuye las pruebas heredadas de Lean a Aristotle, de Harmonic.
+
+Certo~\cite{Certo} produjo el certificado matricial finito de la rejilla rectangular de la Figura~\ref{fig:rectangle}. El companion indica la especificación de la matriz, el certificado y el informe de verificación.
+
+El autor conserva la responsabilidad por los argumentos, las citas, el código y la presentación. La autoría corresponde a la persona indicada en la portada.
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem{AB} G.~Ambrus and R.~Bozzai, Colorful vector balancing, \emph{Mathematika} \textbf{70} (2024), e12274. \href{https://doi.org/10.1112/mtk.12274}{doi:\,\nolinkurl{10.1112/mtk.12274}}.
+\bibitem{Spencer} J.~Spencer, Balancing unit vectors, \emph{J. Combin. Theory Ser. A} \textbf{30} (1981), 349--350. \href{https://doi.org/10.1016/0097-3165(81)90033-9}{doi:\,\nolinkurl{10.1016/0097-3165(81)90033-9}}.
+\bibitem{KLOS} D.~K\"uhn, A.~Lo, D.~Osthus and K.~Staden, The robust component structure of dense regular graphs and applications, \emph{Proc. Lond. Math. Soc.} \textbf{110} (2015), 19--56. \href{https://doi.org/10.1112/plms/pdu039}{doi:\,\nolinkurl{10.1112/plms/pdu039}}.
+\bibitem{Haemers} W.~H. Haemers, Interlacing eigenvalues and graphs, \emph{Linear Algebra Appl.} \textbf{226--228} (1995), 593--616. \url{https://pure.uvt.nl/ws/files/996579/interlac.pdf}.
+\bibitem{FFMYZ} A.~Ferber, B.~Frederickson, D.~Mao, L.~Yepremyan and Y.~Zhu, Regular bipartite decompositions of pseudorandom graphs, \emph{J. Combin. Theory Ser. B} \textbf{179} (2026), 270--292. \href{https://doi.org/10.1016/j.jctb.2026.04.004}{doi:\,\nolinkurl{10.1016/j.jctb.2026.04.004}}.
+
+
+\bibitem{BKLS}
+P.~N. Balister, A.~V. Kostochka, H.~Li and R.~H. Schelp,
+Balanced edge colorings,
+\emph{J. Combin. Theory Ser. B} \textbf{90} (2004), 3--20.
+\href{https://doi.org/10.1016/S0095-8956(03)00073-X}{doi:\,\nolinkurl{10.1016/S0095-8956(03)00073-X}}.
+
+\bibitem{CariolaroFu}
+D.~Cariolaro and H.-L. Fu,
+Covering graphs with matchings of fixed size,
+\emph{Discrete Math.} \textbf{310} (2010), 276--287. \url{https://ir.lib.nycu.edu.tw/bitstream/11536/13011/1/000273169900010.pdf}.
+
+
+\bibitem{CMS}
+G.~Chen, J.~McDonald and S.~Shan,
+Towards the Overfull Conjecture II,
+preprint, 2026.
+\href{https://arxiv.org/abs/2607.02270v1}{arXiv:2607.02270v1}.
+
+\bibitem{Gale}
+D. Gale, A theorem on flows in networks,
+\emph{Pacific J. Math.} \textbf{7} (1957), 1073--1082.
+\href{https://doi.org/10.2140/pjm.1957.7.1073}{doi:\,\nolinkurl{10.2140/pjm.1957.7.1073}}.
+
+\bibitem{GK}
+R.~Gajjala and A.~Khan,
+Asymptotically Optimal Weighted Edge Colorings via Local Bin Packing,
+preprint, 2026.
+\href{https://arxiv.org/abs/2611.03190}{arXiv:2611.03190}.
+
+\bibitem{McDiarmid}
+C.~J.~H. McDiarmid,
+The solution of a timetabling problem,
+\emph{J. Inst. Math. Appl.} \textbf{9} (1972), 23--34.
+\href{https://doi.org/10.1093/imamat/9.1.23}{doi:\,\nolinkurl{10.1093/imamat/9.1.23}}.
+
+\bibitem{NashWilliams}
+C.~St.~J.~A. Nash-Williams,
+Amalgamations of almost regular edge-colourings of simple graphs,
+\emph{J. Combin. Theory Ser. B} \textbf{43} (1987), 322--342. \url{https://www.sciencedirect.com/science/article/pii/0095895687900086}.
+
+
+\bibitem{PlantholtShan}
+M.~J. Plantholt and S.~Shan,
+On the Multigraph Overfull Conjecture,
+\emph{J. Graph Theory} \textbf{109} (2025), 226--236.
+\href{https://doi.org/10.1002/jgt.23221}{doi:\,\nolinkurl{10.1002/jgt.23221}}.
+
+\bibitem{Shan}
+S.~Shan,
+The overfull conjecture on graphs of odd order and large minimum degree,
+\emph{J. Graph Theory} \textbf{106} (2024), 322--351. \href{https://doi.org/10.1002/jgt.23077}{doi:\,\nolinkurl{10.1002/jgt.23077}}.
+
+\bibitem{SY}
+A.~Shioura and M.~Yagiura,
+A fast algorithm for computing a nearly equitable edge coloring with balanced conditions,
+\emph{J. Graph Algorithms Appl.} \textbf{14} (2010), 391--407.
+\href{https://doi.org/10.7155/jgaa.00213}{doi:\,\nolinkurl{10.7155/jgaa.00213}}.
+
+\bibitem{BFU}
+A.~Z. Broder, A.~M. Frieze and E.~Upfal,
+Existence and construction of edge-disjoint paths on expander graphs,
+\emph{SIAM J. Comput.} \textbf{23} (1994), 976--989.
+\href{https://doi.org/10.1137/S0097539792232021}{doi:\,\nolinkurl{10.1137/S0097539792232021}}.
+
+\bibitem{EGJ}
+S.~Ehard, S.~Glock and F.~Joos,
+Pseudorandom hypergraph matchings,
+\emph{Combin. Probab. Comput.} \textbf{29} (2020), 868--885.
+\href{https://arxiv.org/abs/1907.09946}{arXiv:1907.09946}.
+
+\bibitem{KeevashII}
+P.~Keevash, The existence of designs II,
+preprint, 2018.
+\href{https://arxiv.org/abs/1802.05900}{arXiv:1802.05900}.
+
+\bibitem{EL}
+P.~Erd\H{o}s and L.~Lov\'asz,
+Problems and results on 3-chromatic hypergraphs and some related questions,
+in \emph{Infinite and Finite Sets}, Colloq. Math. Soc. J\'anos Bolyai \textbf{10},
+North-Holland, Amsterdam, 1975, 609--627.
+
+
+\bibitem{Certo}
+J.~P. Traverso Gianini, \emph{Certo: computational tools with verifiable certificates}, version 0.40.0. Commit \texttt{df0ec25178a6}. \url{https://github.com/jtraverso/certo-math}.
+
+\bibitem{TraversoV}
+J.~P. Traverso Gianini,
+\emph{Colorability and realizability defects in resource-dominated packing relaxations}, Preprint 1.0, 2026.
+\url{https://github.com/jtraverso/erdos-81-chordal-clique-partitions/tree/papers-v-vi-notes-preprint-1.0/preprints/PAPER_V}.
+
+\bibitem{TraversoOverfull}
+J.~P. Traverso Gianini, \emph{Overfull Criteria}, desarrollo en Lean 4.
+Registro de Palomar PALOMAR-2026-11-08-000004.
+\url{https://github.com/jtraverso/overfull-criteria}.
+
+\bibitem{WECRCompanion}
+J.~P. Traverso Gianini,
+\emph{Companion de formalización de Recoloreo ponderado de aristas y 1-factorización a través de un corte}, Preprint 1.0, 2026.
+\url{https://github.com/jtraverso/weighted-edge-recoloring/releases/download/preprint-1.0/WECR_FORMALIZATION_COMPANION_v1.0_es.pdf}.
+
+\end{thebibliography}
+\end{document}

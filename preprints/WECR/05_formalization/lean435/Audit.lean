@@ -1,0 +1,30 @@
+import WeightedPaper
+
+#print axioms WeightedRecolouring.exists_balanced_prescribed_sizes
+#print axioms WeightedRecolouring.Example.sharp_connected_example
+#print axioms WeightedPaper.exists_balanced_euclidean_prescribed_sizes
+#print axioms WeightedPaper.exists_balanced_in_span
+#print axioms WeightedPaper.vectorLoad_sub_const
+#print axioms WeightedPaper.exists_euclidean_sign_balance
+#print axioms WeightedPaper.hall_of_scaled_residual
+#print axioms WeightedPaper.residual_row_weight_lower
+#print axioms WeightedPaper.hall_of_bounded_pair_weights
+#print axioms WeightedPaper.column_normalized_mass_le_one
+#print axioms WeightedPaper.load_of_translated_profile
+#print axioms WeightedPaper.exists_vector_recolour_with_reserves
+#print axioms WeightedPaper.IncidenceBudget.exists_recolour
+#print axioms WeightedPaper.exists_crossing_packing_of_dense_cut
+#print axioms WeightedPaper.exists_crossing_packing_of_robust_cut
+#print axioms WeightedPaper.exists_factorization_of_crossing_packing
+#print axioms WeightedPaper.exists_factorization_of_weighted_cut
+#print axioms WeightedPaper.coordinateMatching_discrepancy
+#print axioms WeightedPaper.coordinateMatching_equal_palette
+#print axioms WeightedPaper.Examples.cappedHost_factorization
+#print axioms WeightedPaper.Examples.cappedHost_scaling_obstruction
+#print axioms WeightedPaper.Examples.centredHost_factorization
+#print axioms WeightedPaper.Examples.baseline_columns_independent
+#print axioms WeightedPaper.Examples.centredHost_uncentered_obstruction
+#print axioms WeightedPaper.Examples.block_robust
+#print axioms WeightedPaper.Examples.robustHost_factorization
+#print axioms WeightedPaper.Examples.robustHost_ordinary_degree
+#print axioms WeightedPaper.Examples.robustHost_not_dense

@@ -1,0 +1,5 @@
+Preserved all 166 distinct audited declarations from the two earlier packages.
+The 55 source modules of the previous Lean 4.35 repair package are byte-identical.
+The migrated source comparison accounts for renamed imports and two Mathlib compatibility edits.
+OneFactor/Stair.lean
+WeightedPaper/Blocks/BlockGraph.lean

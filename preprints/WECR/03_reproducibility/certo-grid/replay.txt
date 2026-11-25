@@ -1,0 +1,14 @@
+  the spec matches: grid_inertia.py is the file this was made from
+VALID  symmetric_inertia certificate (two exact rational matrix products and a diagonal, no elimination)
+  [ok] a symmetric rational matrix, and a congruence of the same size  (32 by 32)
+  [ok] S is invertible  (S times its stated inverse is the 32 by 32 identity)
+  [ok] S A S^T is the stated diagonal  (S A S^T = D, entry by entry, in exact rationals)
+  [ok] the inertia and every summary of it follow from D  ((1, 28, 3); fields that disagree: -)
+  [ok] the refutation of PSD  (x^T A x < 0 for the stated x, recomputed)
+  WARNING: Sylvester's law of inertia is the theorem used: congruent real symmetric matrices have the same numbers of positive, negative and zero eigenvalues. It is cited, not re-proved.
+  degree of checking: complete -- every step re-derived by certo's own exact arithmetic
+  inertia of a 32 by 32 symmetric rational matrix, established by a congruence rather than by re-elimination
+  CARD -- symmetric_inertia, verified complete
+  evidence: an EXACT COMPUTATION: a value or a structure, checked
+  produced by certo 0.40.0, verified by 0.40.0; schema 5; id 50957b50c2694aba
+  valid on its own terms (evidence `computation`); no obligation given, so whether it is YOURS was not asked -- add --obligation SPEC

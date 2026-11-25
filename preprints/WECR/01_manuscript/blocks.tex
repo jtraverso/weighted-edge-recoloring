@@ -1,0 +1,70 @@
+\section{Exceptional assignments and exact block deficits}\label{sec:block-routing}
+
+The ordinary vertices of a cut can be divided into corresponding blocks. Even if the two sides have the same total number of free vertices in a given color, their free counts can differ within a block. Assigning an exceptional vertex to a block uses one ordinary vertex on the opposite side and changes that difference by one.
+
+Fix a color. Write \(u_j,v_j\) for the ordinary free counts on the left and right of block \(j\) and put \(\delta_j=u_j-v_j\). Let \(X,Y\) be the free exceptional sets on the two sides. Each exception has a set of eligible blocks. If \(p^A_j,p^B_j\) count the left and right exceptions assigned to \(j\), the remaining ordinary sides there have sizes \(u_j-p^B_j\) and \(v_j-p^A_j\). They are equal exactly when
+\[
+ p^B_j-p^A_j=\delta_j.
+\]
+The total balance of free vertices gives \(\sum_j\delta_j=|Y|-|X|\). For a set \(S\) of blocks, let \(L(S)\) count the left exceptions whose eligible blocks all lie in \(S\), and let \(R(S)\) count the right exceptions with an eligible block in \(S\). We write \(\delta(S)=\sum_{j\in S}\delta_j\).
+
+For example, suppose there are two blocks with \(\delta_1=1\) and \(\delta_2=-1\). The width assumptions below can be met by taking \((u_1,v_1)=(\theta+2,\theta+1)\) and \((u_2,v_2)=(\theta+1,\theta+2)\), with threshold \(\theta\) in both blocks. If the left exception can use only block~1 and the right exception only block~2, then \(L(\{1\})=1\) and \(R(\{1\})=0\). The first singleton cut has gap \(1-0+1=2\). Allowing the right exception to use both blocks reduces the largest gap to \(1\). Allowing the left exception to use both blocks reduces it to \(0\), since we can now send the left exception to block~2 and the right exception to block~1. Theorem~\ref{thm:block-deficit} turns these cut gaps into exact matching deficits.
+
+\begin{lemma}[Assignment across blocks]\label{lem:block-assignment}
+Assume total balance. There is an eligible assignment with \(p^B_j-p^A_j=\delta_j\) at every block if and only if
+\[
+ \delta(S)\le R(S)-L(S)
+ \qquad\text{for every set \(S\) of blocks.}
+ \tag{A}\label{eq:block-assignment}
+\]
+If each right count must also satisfy \(p^B_j\le c_j\), for given nonnegative integers \(c_j\), the necessary and sufficient condition is
+\[
+ \delta(S)\le R(T)-L(S)+\sum_{j\in S\setminus T}c_j
+ \qquad\text{for every two sets \(S,T\) of blocks.}
+ \tag{C}\label{eq:block-capacity}
+\]
+\end{lemma}
+
+\begin{proof}
+For \eqref{eq:block-assignment}, we form a network with one node for each block and each exception. Its unit-capacity arcs run from left exceptions to eligible blocks and from blocks to eligible right exceptions. The prescribed net inflows are \(-1\) at left exceptions, \(1\) at right exceptions, and \(-\delta_j\) at block \(j\). An integral flow with these demands gives the desired counts. By Gale's feasibility theorem, the demand on the complement of each cut must be at most the capacity entering it \cite{Gale}.
+
+Fix the set \(S\) of block nodes on the source side of a cut. The block contribution to the demand in the complement is \(-\delta(S^c)\). A left exception on the complementary side contributes \(-1\). On the source side it contributes the negative of the number of its eligible blocks outside \(S\), after incoming capacity is subtracted. Maximizing over the side of the cut containing this exception gives \(0\) if all its eligible blocks lie in \(S\), and \(-1\) otherwise. Similarly, a right exception contributes \(0\) at most if it can use a block in \(S\), and \(1\) otherwise. The maximum difference between demand and incoming capacity is therefore
+\[
+ -\delta(S^c)-|X|+L(S)+|Y|-R(S)
+ =\delta(S)+L(S)-R(S).
+\]
+This proves the first assertion.
+
+For \eqref{eq:block-capacity}, we introduce two copies \(j^-,j^+\) of each block. Left real exceptions use only the first copy and right real exceptions use only the second. For each \(j\) add \(c_j\) left exceptions eligible for either copy of that block. Prescribe differences \(\delta_j-c_j\) and \(0\) at the first and second copies, respectively. At the second copy the number of added exceptions must equal \(p^B_j\), and the other \(c_j-p^B_j\) added exceptions go to the first. The first copy then enforces \(p^B_j-p^A_j=\delta_j\). This construction works in both directions. Applying \eqref{eq:block-assignment} to the doubled set of blocks gives the two-set condition. A cut with first copies from \(S\) and second copies from \(T\) has already subtracted \(c_j\) from the demand for each \(j\in S\). The added exceptions are forced into the cut precisely for \(j\in S\cap T\), which cancels those capacities. The capacities left in \eqref{eq:block-capacity} are for blocks with \(j^-\) in the cut and \(j^+\) outside it.
+\end{proof}
+
+For the matching step, suppose each eligible exception has a weighted reserve in its block large enough for Hall after at most \(k-1\) previous crossing copies have been spent at any vertex. The column bounds are taken over all eligible exceptions on that side of the block. They apply, in particular, to any set of exceptions assigned there. Match the assigned exceptions to ordinary vertices using Hall, separately for left and right exceptions. Those two matchings are disjoint because they use opposite exceptional sets.
+
+Suppose also that for each block \(j\) there is an ordinary threshold \(\theta_j\). Whenever nonempty ordinary subsets \(S,T\) of opposite sides of that block satisfy \(|S|+|T|>\theta_j\), some vertex in \(S\cup T\) has at least \(k\) original crossing copies to the opposite subset. Equal free ordinary sets of size at least \(\theta_j\) can then be matched despite the previous spending. Otherwise Hall gives a pair of nonempty sets with no residual edge whose sizes sum to more than their common free size. All copies across that pair would have been spent, contrary to the \(k\)-copy bound.
+
+\begin{corollary}[Factorization with block capacities]\label{cor:block-factorization}
+Let \(M\) be a regular multigraph with a balanced cut. Suppose that the internal edges are properly colored with \(k\) colors and that each color leaves the same number of free vertices on the two sides. Use the local weighted reserves and ordinary thresholds just described. For each color require \(u_j\ge\theta_j\) and impose \eqref{eq:block-capacity} with \(c_j=u_j-\theta_j\). Then the internal colors can be completed with disjoint crossing copies, and \(M\) has a 1-factorization.
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:block-assignment} gives an assignment respecting \(c_j\). After the exceptional matchings, the ordinary counts in block \(j\) are equal, and \(u_j-p^B_j\ge\theta_j\). The ordinary matching step therefore completes the color. After completing all internal colors, factor the regular bipartite residue as in Theorem~\ref{thm:factor}.
+\end{proof}
+
+The largest cut gap measures the cost of a failed balancing condition. The width hypothesis in the next theorem leaves room to apply the ordinary matching step for any eligible assignment, even if a block receives all the opposite exceptions.
+
+\begin{theorem}[Exact deficit]\label{thm:block-deficit}
+Fix a color with balanced total free counts. Suppose that each exception has at least one eligible block, that the Hall reserves and ordinary thresholds above hold, and that \(u_j\ge\theta_j+|Y|\) and \(v_j\ge\theta_j+|X|\) for every block \(j\). Among partial completions that cover all exceptions and respect their assignments and the ordinary block partition, the minimum number of vertices left unmatched on each side is
+\[
+ d=\max_S\bigl(\delta(S)-R(S)+L(S)\bigr).
+ \tag{E}\label{eq:block-deficit}
+\]
+The minima for the individual colors can all be attained with disjoint crossing copies. Changing the eligibility lists of at most \(r\) exceptions changes the value in \eqref{eq:block-deficit} by at most \(r\).
+\end{theorem}
+
+\begin{proof}
+For any eligible assignment, the positive part of the imbalance after assignment has sum at least \(\delta(S)-R(S)+L(S)\), for every \(S\). A matching within the assigned blocks leaves at least that sum of positive imbalances unmatched on the left. This proves the lower bound.
+
+The cuts at the empty and full sets have gap zero. Add \(d\) exceptions to each side, all eligible for every block. For every nonempty proper set of blocks the right-hand side of \eqref{eq:block-assignment} increases by \(d\). The cuts at the empty and full sets still hold. Lemma~\ref{lem:block-assignment} assigns all the exceptions. We then discard the added ones. At most \(d\) units of positive imbalance remain, since the newly added right exceptions had total count \(d\).
+
+The weighted reserves cover the real exceptions under this assignment. The smaller remaining ordinary side in each block has at least \(\theta_j\) vertices. We trim the larger side to that size and apply the ordinary matching step. The unmatched count attains the lower bound. This works after any \(k-1\) earlier copies per vertex have been spent, so repeating across colors gives simultaneous attainment. Finally, changing the list of one exception changes either \(R(S)\) or \(L(S)\) by at most one for every cut. The same estimate applies to the maximum.
+\end{proof}

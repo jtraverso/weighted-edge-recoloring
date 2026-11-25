@@ -1,0 +1,2 @@
+q=12, b=1: 23 disjoint seed matchings, residue degree 46, rectangle degree 12
+q=12, b=2: 46 disjoint seed matchings, residue degree 92, rectangle degree 24

@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\pdftrailerid{}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,microtype,tabularx}
+\usepackage{xcolor,xurl}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\leanname}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\leanref}[1]{\texttt{#1.lean}}
+\hypersetup{pdftitle={Formalization companion to Weighted edge recoloring and 1-factorization across a cut},pdfauthor={Juan Pablo Traverso Gianini},pdfsubject={Preprint 1.0, DOI 10.5281/zenodo.24521352}}
+\begin{document}
+\begin{center}
+{\Large \textbf{Formalization companion}\\[2pt]\normalsize Weighted edge recoloring and 1-factorization across a cut}\\[4pt]
+Juan Pablo Traverso Gianini \quad $\cdot$ \quad Preprint 1.0 \quad $\cdot$ \quad November 24, 2026
+\end{center}
+
+\begin{center}
+Versioned release page \quad $\cdot$ \quad \mbox{\href{https://doi.org/10.5281/zenodo.24521352}{DOI 10.5281/zenodo.24521352}}\\[2pt]
+\url{https://github.com/jtraverso/weighted-edge-recoloring/releases/tag/preprint-1.0}.
+\end{center}
+The project in \nolinkurl{05_formalization/lean435} builds under Lean 4.35.0-rc3. The Preprint 1.0 source archive pins this version of the development. Its \leanname{lake-manifest.json} pins the mathlib revision and the proof dependencies.
+
+\section*{Numbered results}
+
+The paths in this table are relative to the Lean project.
+
+\smallskip
+\begingroup
+\renewcommand{\arraystretch}{1.10}
+\noindent\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X@{}}
+\textbf{Result} & \textbf{Lean source} \\[2pt]
+Theorem 1 & \nolinkurl{WeightedPaper/IntrinsicBalance.lean} \\
+Corollary 2 & \nolinkurl{WeightedRecolouring/Balance.lean}\newline
+  \nolinkurl{WeightedRecolouring/Sharpness.lean} \\
+Lemma 3 & \nolinkurl{WeightedPaper/Cut/ExactReserves.lean}\newline
+  \nolinkurl{WeightedPaper/ScaledHall.lean} \\
+Theorem 4 & \nolinkurl{WeightedPaper/Cut/PairDegreeFactorization.lean} \\
+Lemma 5 & \nolinkurl{WeightedPaper/Blocks/BlockTransport.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockCapacity.lean} \\
+Corollary 6 & \nolinkurl{WeightedPaper/Blocks/BlockCapacity.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockFactorization.lean} \\
+Theorem 7 & \nolinkurl{WeightedPaper/Blocks/BlockDeficit.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockPartialCompletion.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockPartialPacking.lean} \\
+Lemma 8 & \leanref{ReserveGraph} \\
+Theorem 9 & \leanref{HybridHost} \\
+Corollary 10 & \leanref{GridRectangle}, \leanref{GridGrowth} \\
+\end{tabularx}\par
+\endgroup
+
+\smallskip
+\noindent
+\leanref{MatchingDiscrepancy} checks the Euclidean coordinate-matching example, and \nolinkurl{WeightedPaper/Blocks/TwoBlockDeficit.lean} verifies the deficits \(2,1,0\). The pinned flow sources and the K\H{o}nig proof inherited from Erd\H{o}s~81 Paper~V are identified in \leanname{PROVENANCE.md} and the sources. The bipartite proof credits Aristotle, by Harmonic.
+
+\section*{Spectral repair, the nibble, and the sparse grid}
+
+The source archive is \nolinkurl{wecr-lean435-preprint-1.0.tar.gz}. Palomar records the nibble with tests as \texttt{PALOMAR-2026-11-19-000022} and the asymmetric Lov\'asz local lemma as \texttt{PALOMAR-2026-10-20-000004}.
+
+\begin{description}\raggedright
+\item[The law of a repair walk.]
+\leanref{WalkKernel} proves \leanname{bridgeWeight_reverse} and \leanname{long_segment_bounds}.
+\leanref{AdmissibleBridge} proves the bound on the mass of admissible walks.
+\leanref{BridgeLaw} defines their normalized law. In \leanref{ConditionedPalette}, \leanname{conditioned_palette_loads} bounds the summed probabilities for reserve copies and for old edges of one color under the same choice of laws.
+\item[Conflicts and matching.]
+\leanref{ConflictSelection} and \leanref{RepairSelection} select walks with disjoint reserve copies and with no repeated use of an old matching edge in a color. The split of the dependency neighborhood certifies the improved budget \(4/27\).
+\leanref{MatchingRepair} proves the Hall argument that turns these walks into matchings.
+\leanref{ReserveGraph} gives \leanname{repair_in_regular_reserve}, the repair lemma on the physical free sets.
+\item[The hybrid factorization theorem.]
+\leanref{DemandTests} proves the simultaneous bounds for the incidence hypergraph.
+\leanref{BulkMatching} reads them as counts of missed vertices and their reserve neighbors.
+\leanref{HybridRepair} turns these bounds into ordinary matchings.
+\leanref{ExceptionalPacking} chooses the exceptional crossings from the weighted Hall budgets.
+\leanref{HybridHost} proves \leanname{factorization_from_weighted_nibble}, with the pairwise capacity bounds and the final bipartite residue included. Its size threshold depends only on the nibble parameter. The conclusion includes an injection of the initial palette into the final palette and an equality for the color of every internal copy.
+\item[The sparse grid.]
+\leanref{GridLayout} fixes the coordinate placement and \leanref{GridDegrees} verifies regularity.
+\leanref{DetourSchedule} applies K\H{o}nig to schedule the exchanges for even \(q\ge12\), and \leanref{GridSpending} verifies their capacity bound.
+In \leanref{GridRectangle}, \leanname{sparse_grid_factorization_and_separation} gives the factorization and the failure of the rectangle criterion on the same host.
+\leanref{GridGrowth} proves both orders of growth. \leanref{GridSpectrum} proves the norm bound for the reserve and exhibits an attaining direction for every positive cell size. \leanref{GridRate} checks the two asymptotic repair budgets. \leanref{GridNibble} assembles all the ordinary hypotheses, and \leanref{GridHybrid} applies the hybrid theorem to the same physical grid after any feasible exceptional matching.
+\end{description}
+
+The verification reports in \nolinkurl{evidence/} record a successful build, a kernel replay of 225 modules, and an audit of 166 declarations listed in \leanref{WECRAudit}. The audited results use only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}, or a subset of them. The replay procedure is in \texttt{03\_reproducibility/README.md}.
+
+\section*{Certo calculation for the rectangular cell matrix}
+
+The finite check concerns the \(8\)-by-\(4\) rectangle illustrated in the first figure. Number its 32 cells in row order. Let \(A\) have entry one when two cells share a row or a column, including the diagonal, and zero otherwise. The spectrum calculation predicts one eigenvalue of \(A\) above \(7\), three equal to \(7\), and 28 below it. Certo 0.40.0 (commit \texttt{df0ec25178a6}) produced an exact rational congruence certificate for \(A-7I\). Separate verification gave inertia \((1,28,3)\) in positive, negative, zero order. The computation is on the cell matrix before the blow-up by 256.
+
+The matrix specification, certificate, and verification output are in \nolinkurl{03_reproducibility/certo-grid}.
+\end{document}

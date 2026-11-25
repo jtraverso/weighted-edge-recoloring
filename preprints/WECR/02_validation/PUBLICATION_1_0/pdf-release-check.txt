@@ -1,0 +1,7 @@
+Zenodo reserved 10.5281/zenodo.24521352 for Preprint 1.0.
+The English and Spanish sources retain their formulas, labels, and citation keys. Two builds produced four byte-identical PDF pairs.
+The DOI is visible on each first page. The rest of the first-page text, the PDF author and the existing links match the preceding reviewed files. All later pages match in text and rendering.
+WECR_FORMALIZATION_COMPANION_v1.0_en.pdf: 2 pages, visible DOI and PDF metadata verified, previous text and links retained, SHA-256 889f1aad8a61c506c532dbf2a008e52b33096f2b8e04fa1b7b90251388d83f26
+WECR_FORMALIZATION_COMPANION_v1.0_es.pdf: 2 pages, visible DOI and PDF metadata verified, previous text and links retained, SHA-256 4753a2e4a02c037def3e90b7654c1de7dcc901010f4752b25e4d74b93d083c86
+WECR_preprint_v1.0_en.pdf: 19 pages, visible DOI and PDF metadata verified, previous text and links retained, SHA-256 88e20d1bd11cfab23152657f0bf2efca5012a4c58b9627e0115534ce6cbaad47
+WECR_preprint_v1.0_es.pdf: 20 pages, visible DOI and PDF metadata verified, previous text and links retained, SHA-256 ab768ffcef530fa368e922d316a1e5a2dfd359a4badeb8e9b377a7739f6aeb91

@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\pdftrailerid{}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,microtype,tabularx}
+\usepackage{xcolor,xurl}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\leanname}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\leanref}[1]{\texttt{#1.lean}}
+\hypersetup{pdftitle={Companion de formalización de Recoloreo ponderado de aristas y 1-factorización a través de un corte},pdfauthor={Juan Pablo Traverso Gianini},pdfsubject={Preprint 1.0, DOI 10.5281/zenodo.24521352}}
+\begin{document}
+\begin{center}
+{\Large \textbf{Companion de formalización}\\[2pt]\normalsize Recoloreo ponderado de aristas y 1-factorización a través de un corte}\\[4pt]
+Juan Pablo Traverso Gianini \quad $\cdot$ \quad Preprint 1.0 \quad $\cdot$ \quad 24 de noviembre de 2026
+\end{center}
+
+\begin{center}
+Página de la versión publicada \quad $\cdot$ \quad \mbox{\href{https://doi.org/10.5281/zenodo.24521352}{DOI 10.5281/zenodo.24521352}}\\[2pt]
+\url{https://github.com/jtraverso/weighted-edge-recoloring/releases/tag/preprint-1.0}.
+\end{center}
+El proyecto en \nolinkurl{05_formalization/lean435} se compila con Lean 4.35.0-rc3. El archivo de fuentes de Preprint 1.0 fija esta versión del desarrollo. Su \leanname{lake-manifest.json} fija la revisión de Mathlib y las dependencias de las pruebas.
+
+\section*{Resultados numerados}
+
+Las rutas de la tabla son relativas al proyecto Lean.
+
+\smallskip
+\begingroup
+\renewcommand{\arraystretch}{1.10}
+\noindent\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X@{}}
+\textbf{Resultado} & \textbf{Fuente Lean} \\[2pt]
+Teorema 1 & \nolinkurl{WeightedPaper/IntrinsicBalance.lean} \\
+Corolario 2 & \nolinkurl{WeightedRecolouring/Balance.lean}\newline
+  \nolinkurl{WeightedRecolouring/Sharpness.lean} \\
+Lema 3 & \nolinkurl{WeightedPaper/Cut/ExactReserves.lean}\newline
+  \nolinkurl{WeightedPaper/ScaledHall.lean} \\
+Teorema 4 & \nolinkurl{WeightedPaper/Cut/PairDegreeFactorization.lean} \\
+Lema 5 & \nolinkurl{WeightedPaper/Blocks/BlockTransport.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockCapacity.lean} \\
+Corolario 6 & \nolinkurl{WeightedPaper/Blocks/BlockCapacity.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockFactorization.lean} \\
+Teorema 7 & \nolinkurl{WeightedPaper/Blocks/BlockDeficit.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockPartialCompletion.lean}\newline
+  \nolinkurl{WeightedPaper/Blocks/BlockPartialPacking.lean} \\
+Lema 8 & \leanref{ReserveGraph} \\
+Teorema 9 & \leanref{HybridHost} \\
+Corolario 10 & \leanref{GridRectangle}, \leanref{GridGrowth} \\
+\end{tabularx}\par
+\endgroup
+
+\smallskip
+\noindent
+\leanref{MatchingDiscrepancy} verifica el ejemplo euclidiano del emparejamiento con vectores coordenados, y \nolinkurl{WeightedPaper/Blocks/TwoBlockDeficit.lean} verifica los déficits \(2,1,0\). \leanname{PROVENANCE.md} y las fuentes identifican las pruebas de flujo y la prueba de K\H{o}nig heredada del artículo V sobre Erd\H{o}s~81. La prueba bipartita atribuye el crédito a Aristotle, de Harmonic.
+
+\section*{Reparación espectral, el \emph{nibble} y la rejilla dispersa}
+
+El archivo de fuentes es \nolinkurl{wecr-lean435-preprint-1.0.tar.gz}. Palomar registra el \emph{nibble} con pruebas como \texttt{PALOMAR-2026-11-19-000022} y el lema local asimétrico de Lovász como \texttt{PALOMAR-2026-10-20-000004}.
+
+\begin{description}\raggedright
+\item[Ley de un recorrido de reparación.]
+\leanref{WalkKernel} demuestra \leanname{bridgeWeight_reverse} y \leanname{long_segment_bounds}.
+\leanref{AdmissibleBridge} demuestra la cota sobre la masa de recorridos admisibles.
+\leanref{BridgeLaw} define su ley normalizada. En \leanref{ConditionedPalette}, \leanname{conditioned_palette_loads} acota las sumas de probabilidades para las copias de reserva y las aristas anteriores de un color bajo una misma elección de leyes.
+\item[Conflictos y emparejamientos.]
+\leanref{ConflictSelection} y \leanref{RepairSelection} seleccionan recorridos con copias de reserva disjuntas y sin reutilizar una arista anterior de un color. La partición de la vecindad de dependencias certifica el presupuesto mejorado \(4/27\).
+\leanref{MatchingRepair} demuestra el argumento de Hall que convierte esos recorridos en emparejamientos.
+\leanref{ReserveGraph} da \leanname{repair_in_regular_reserve}, el lema de reparación para los conjuntos libres físicos.
+\item[El teorema híbrido de factorización.]
+\leanref{DemandTests} demuestra las cotas simultáneas del hipergrafo de incidencia.
+\leanref{BulkMatching} las interpreta como conteos de vértices sin cubrir y de sus vecinos de reserva.
+\leanref{HybridRepair} convierte estas cotas en emparejamientos ordinarios.
+\leanref{ExceptionalPacking} elige las aristas cruzadas excepcionales a partir de los presupuestos ponderados de Hall.
+\leanref{HybridHost} demuestra \leanname{factorization_from_weighted_nibble}, incluidas las cotas de capacidad por par y la factorización del residuo bipartito. Su umbral depende solo del parámetro del \emph{nibble}. La conclusión incluye una inyección de la paleta inicial en la final y una igualdad para el color de cada copia de arista interna.
+\item[La rejilla dispersa.]
+\leanref{GridLayout} fija las coordenadas y \leanref{GridDegrees} verifica la regularidad.
+\leanref{DetourSchedule} aplica K\H{o}nig para programar los intercambios con \(q\ge12\) par, y \leanref{GridSpending} verifica su cota de capacidad.
+En \leanref{GridRectangle}, \leanname{sparse_grid_factorization_and_separation} demuestra la factorización y el fallo del criterio de rectángulos en el mismo multigrafo.
+\leanref{GridGrowth} prueba ambos órdenes de crecimiento. \leanref{GridSpectrum} prueba la cota de norma de la reserva y exhibe una dirección que la alcanza para todo tamaño positivo de celda. \leanref{GridRate} verifica ambos presupuestos asintóticos de reparación. \leanref{GridNibble} reúne todas las hipótesis ordinarias y \leanref{GridHybrid} aplica el teorema híbrido a la misma rejilla física después de cualquier emparejamiento factible de los excepcionales.
+\end{description}
+
+Los informes en \nolinkurl{evidence/} registran una compilación exitosa, la reverificación de 225 módulos por el núcleo de Lean y la auditoría de 166 declaraciones enumeradas en \leanref{WECRAudit}. Los resultados auditados usan solo \texttt{propext}, \texttt{Classical.choice} y \texttt{Quot.sound}, o un subconjunto. El procedimiento de reverificación está en \nolinkurl{03_reproducibility/README.md}.
+
+\section*{Cálculo con Certo para la matriz de celdas rectangulares}
+
+La verificación finita corresponde al rectángulo de \(8\) por \(4\) de la primera figura. Numeramos sus 32 celdas por filas. Sea \(A\) la matriz cuya entrada es uno si dos celdas comparten fila o columna, incluida la diagonal, y cero en otro caso. El cálculo espectral predice un valor propio de \(A\) mayor que \(7\), tres iguales a \(7\) y 28 menores. Certo 0.40.0 (commit \texttt{df0ec25178a6}) produjo un certificado exacto de congruencia racional de \(A-7I\). Una verificación independiente dio inercia \((1,28,3)\) en el orden de positivos, negativos y nulos. El cálculo usa la matriz de celdas antes de sustituir cada celda por 256 vértices.
+
+La especificación de la matriz, el certificado y el resultado de la verificación están en \nolinkurl{03_reproducibility/certo-grid}.
+\end{document}
