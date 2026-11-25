@@ -1,0 +1,76 @@
+name = "wecr_repair"
+version = "0.1.0"
+defaultTargets = ["WECRRegistrySolution"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "c55e6e786f49471c72fbddbec5415808896aec1e"
+
+[[require]]
+name = "lovasz_local_lemma"
+git = "https://github.com/jtraverso/lovasz-local-lemma"
+rev = "9d020fa8fb20e9426c2d6780a3cfab4a68794d89"
+
+[[require]]
+name = "keevash_designs2_kahn"
+git = "https://github.com/jtraverso/keevash-designs-ii-kahn"
+rev = "e27207ee346c481e0cbfc9c236b941c64a8647e8"
+
+[[lean_lib]]
+name = "WECRRepair"
+roots = [
+  "AdmissibleBridge",
+  "WECRGridModel",
+  "BridgeLaw",
+  "BulkMatching",
+  "ConditionedPalette",
+  "ConflictSelection",
+  "CopyCapacity",
+  "DemandTests",
+  "DetourSchedule",
+  "EdgeMarginals",
+  "ExceptionalHost",
+  "ExceptionalPacking",
+  "GalvinMultigraph.Local.Base",
+  "GalvinMultigraph.Local.Konig",
+  "GalvinMultigraph.Local.Stable",
+  "GridCompletion",
+  "GridDegrees",
+  "GridDetours",
+  "GridGrowth",
+  "GridHost",
+  "GridLayout",
+  "GridRectangle",
+  "GridSpending",
+  "HybridCertificate",
+  "HybridHost",
+  "HybridRepair",
+  "IncidencePacking",
+  "MatchingCoordinates",
+  "MatchingRepair",
+  "NibblePacking",
+  "PaletteAssembly",
+  "PaletteLoads",
+  "PathPacking",
+  "PhysicalFactor",
+  "PhysicalRepair",
+  "RegularHost",
+  "RepairSelection",
+  "ReserveGraph",
+  "ResourceConflicts",
+  "ResourceTotals",
+  "SpectralRepair",
+  "WalkKernel",
+  "WalkOccupancy",
+  "WalkResources",
+  "WeightedPaper.CrossingReserves",
+  "WeightedPaper.Hall",
+  "WeightedPaper.ScaledHall"
+]
+
+[[lean_lib]]
+name = "WECRRegistryChallenge"
+
+[[lean_lib]]
+name = "WECRRegistrySolution"

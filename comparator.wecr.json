@@ -1,0 +1,14 @@
+{
+  "challenge_module": "WECRRegistryChallenge",
+  "solution_module": "WECRRegistrySolution",
+  "theorem_names": [
+    "WeightedPaper.Repair.factorization_from_weighted_nibble",
+    "WeightedPaper.Repair.Grid.sparse_grid_growth"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}

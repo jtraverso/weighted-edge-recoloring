@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
+version: "v0.4"
+
+project:
+  name: "Weighted edge recoloring and 1-factorization across a cut"
+  authors:
+    - "Juan Pablo Traverso Gianini"
+  responsible_maintainers:
+    - "Juan Pablo Traverso Gianini"
+  license: "Apache-2.0"
+  description: >-
+    A verified 1-factorization criterion combining weighted Hall reserves,
+    a hypergraph nibble, and simultaneous spectral repair. A sparse grid
+    has an explicit 1-factorization and fails the rectangle condition for
+    every admissible internal palette on the same cut.
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C15", "05C70", "05C80", "68V20"]
+
+sources:
+  - title: "Weighted edge recoloring and 1-factorization across a cut"
+    authors: ["Juan Pablo Traverso Gianini"]
+    type: original-proof
+    location: "Preprint 1.0, Theorem 9 and the growth estimates in Corollary 10"
+    relationship: formalizes
+  - title: "The existence of designs II"
+    authors: ["Peter Keevash"]
+    id: "arXiv:1802.05900"
+    location: "Section 3.1, nibble estimate"
+    relationship: background
+
+status:
+  scope: >-
+    The comparison covers the hybrid factorization theorem and both sparse grid
+    growth rates. The solution also contains the direct factorization and rectangle
+    separation proof from Corollary 10.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: agent
+      models: ["OpenAI GPT-6"]
+      framework: "OpenAI Codex"
+      tool_setup: "Lean 4, Mathlib, Lake and local reproducibility checks under author direction."
+  notes: "See the preprint for disclosures and the source provenance for reused proofs."
+
+review:
+  status: self-assessed
+  reviewers: []
+  notes: "The solution proof modules and the challenge statements are separate."
+
+alignment:
+  namespace: "WeightedPaper.Repair"
+  statements:
+    - source: "Preprint 1.0, Theorem 9"
+      lean: "WeightedPaper.Repair.factorization_from_weighted_nibble"
+      module: "HybridHost"
+      status: formalized
+    - source: "Preprint 1.0, Corollary 10, both growth rates"
+      lean: "WeightedPaper.Repair.Grid.sparse_grid_growth"
+      module: "GridGrowth"
+      status: formalized

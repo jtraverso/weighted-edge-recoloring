@@ -1,0 +1,5 @@
+'WeightedPaper.Repair.factorization_from_weighted_nibble' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WeightedPaper.Repair.Grid.sparse_grid_factorization_and_separation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'WeightedPaper.Repair.Grid.sparse_grid_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
